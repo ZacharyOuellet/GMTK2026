@@ -1,0 +1,9 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# build folder
+build/*
+!build/web/
+build/web/*
+!build/web/serve.py
