@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://d61irsi7l65p"]
+
+[ext_resource type="PackedScene" uid="uid://cr3l7x8g53tq4" path="res://scene/player/player.tscn" id="1_2m57j"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bpmhk"]
+
+[node name="MainGame" type="Node3D" unique_id=1631344264]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2091930083]
+transform = Transform3D(1, 0, 0, 0, 0.5075384, 0.8616291, 0, -0.8616291, 0.5075384, 0, 12.239, 7.063)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=663757528]
+mesh = SubResource("BoxMesh_bpmhk")
+
+[node name="Player1" parent="." unique_id=308101449 instance=ExtResource("1_2m57j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6349921, 0.42191982, 1.1768541)
+
+[node name="Player2" parent="." unique_id=1753972874 instance=ExtResource("1_2m57j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6258504, 0.4592849, -1.7204175)
+player_id = 2
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1684649353]
+transform = Transform3D(1, 0, 0, 0, 0.5075384, 0.8616291, 0, -0.8616291, 0.5075384, 0, 14.563856, 0)

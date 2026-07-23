@@ -2,6 +2,12 @@
 .godot/
 /android/
 
+# Godot-specific ignores
+.import/
+export.cfg
+export_credentials.cfg
+*.tmp
+
 # build folder
 build/*
 !build/web/
