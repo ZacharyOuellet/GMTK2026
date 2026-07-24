@@ -68,19 +68,19 @@ player_id = 2
 
 [node name="Environment" type="Node3D" parent="." unique_id=127246524]
 
-[node name="Borders" type="Node3D" parent="Environment" unique_id=247722339]
+[node name="Ground" type="StaticBody3D" parent="Environment" unique_id=290701688]
 metadata/_edit_lock_ = true
 
-[node name="Ground" type="StaticBody3D" parent="Environment/Borders" unique_id=290701688]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Borders/Ground" unique_id=940561096]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Ground" unique_id=940561096]
 shape = SubResource("WorldBoundaryShape3D_yilnh")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Borders/Ground" unique_id=1528138847]
-transform = Transform3D(37.199997, 0, 0, 0, 37.2, 0, 0, 0, 37.2, 0, 0, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Ground" unique_id=1528138847]
+transform = Transform3D(14.65, 0, 0, 0, 37.2, 0, 0, 0, 38.455, 0, 0, 0)
 mesh = SubResource("PlaneMesh_0dwx2")
+
+[node name="Borders" type="Node3D" parent="Environment" unique_id=247722339]
+metadata/_edit_lock_ = true
 
 [node name="LeftWall" type="StaticBody3D" parent="Environment/Borders" unique_id=1587370158]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3, 0, 0)
