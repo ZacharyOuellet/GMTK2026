@@ -29,5 +29,5 @@ func _physics_process(delta: float) -> void:
 		direction = Input.get_vector("left_2", "right_2", "up_2", "down_2")
 	
 	velocity.x = direction.x * speed
-	velocity.z = direction.y * speed
+	velocity.z = direction.y * speed * 2.5
 	move_and_slide()

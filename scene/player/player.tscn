@@ -24,8 +24,10 @@ func _process(delta: float) -> void:
 script = ExtResource("1_v7pse")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=602623730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_pa3om")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=563245823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_pa3om")
 script = SubResource("GDScript_v7pse")
