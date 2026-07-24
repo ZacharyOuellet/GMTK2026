@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cr3l7x8g53tq4" path="res://scene/player/player.tscn" id="1_2m57j"]
 [ext_resource type="PackedScene" uid="uid://c5k6sr11hx08o" path="res://scene/timer/timer.tscn" id="2_owwni"]
-[ext_resource type="PackedScene" uid="uid://di73a14l3rof0" path="res://scene/hourglass.tscn" id="3_ud66n"]
+[ext_resource type="PackedScene" uid="uid://di73a14l3rof0" path="res://scene/hourglass/hourglass_interactive.tscn" id="3_ud66n"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bpmhk"]
 

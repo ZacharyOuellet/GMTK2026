@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://di73a14l3rof0"]
 
-[ext_resource type="Script" uid="uid://pk8xhshw0lwq" path="res://scene/hourglass.gd" id="1_davmd"]
+[ext_resource type="Script" uid="uid://pk8xhshw0lwq" path="res://scene/hourglass/hourglass.gd" id="1_davmd"]
 [ext_resource type="PackedScene" uid="uid://b2astgnf5ehfs" path="res://scene/hourglass/hourglass.tscn" id="2_y3yqi"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3bvl0"]
