@@ -3,7 +3,8 @@ extends RigidBody3D
 @export var impulse_magnitude : int = 1
 
 
-func hit(normalized_vector: Vector3, torque_vector : Vector3) -> void: 
+func hit(normalized_vector: Vector3, torque_vector : Vector3) -> void:
+	TimerGlobal.is_running = false;
 	collision_layer = 2
 	collision_mask = 0
 	position.y = 0.1
@@ -20,3 +21,5 @@ func _on_body_entered(body: Node) -> void:
 		position = $CollisionShape3D.global_position
 		position.y = 0
 		rotation = Vector3.ZERO
+		TimerGlobal.is_running = true
+		TimerGlobal.reverse_time()
