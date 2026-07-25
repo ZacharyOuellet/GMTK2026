@@ -2,7 +2,7 @@ extends Node
 @export var initial_max_time: float = 20;
 
 
-var is_running = false :
+var is_running = false:
 		set(value):
 			is_running = value
 			toggled_play_pause.emit(is_running)
@@ -12,13 +12,13 @@ var half_time: float;
 var _currentTime: float = 0;
 
 var _time_direction: Enums.TimeDirection = Enums.TimeDirection.FORWARD;
+
 signal max_time_wasChanged(new_max_time: float)
 signal delta_time_percentage(delta_time_percent: float)
 signal currentTime_percentage(_current_time_percent: float)
 signal time_out()
 signal time_reversed(_time_direction: Enums.TimeDirection)
 signal toggled_play_pause(is_running: bool)
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,7 +34,7 @@ func _process(dt: float) -> void:
 		Enums.TimeDirection.FORWARD:
 			delta_time = dt;
 		Enums.TimeDirection.BACKWARD:
-			delta_time = -dt;
+			delta_time = - dt;
 	_emit_delta_time_as_percentage(delta_time);
 	_currentTime += delta_time
 	currentTime_percentage.emit(get_time_as_percentage());
@@ -71,3 +71,6 @@ func reset() -> void:
 
 func _emit_delta_time_as_percentage(delta_time: float) -> void:
 	delta_time_percentage.emit(delta_time / current_max_time);
+
+func get_time_direction() -> Enums.TimeDirection:
+	return _time_direction;
