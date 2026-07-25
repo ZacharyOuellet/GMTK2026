@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 TimerGlobal="*uid://c5k6sr11hx08o"
+PowerUpManager="*uid://cglqhhudfh0bt"
 
 [display]
 

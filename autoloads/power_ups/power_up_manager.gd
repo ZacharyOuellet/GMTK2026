@@ -68,4 +68,3 @@ func lock_power_up(player_id: int, power_up_type: PowerUpType) -> void:
 func unlock_power_up(player_id: int, power_up_type: PowerUpType) -> void:
 	var index = (player_id - 1) * PowerUpType.size() + power_up_type
 	power_up_locks[index] = 1
-
