@@ -20,6 +20,10 @@ bg_color = Color(0.1882353, 0.6745098, 0.34117648, 0.74509805)
 axis_lock_linear_y = true
 script = ExtResource("1_v7pse")
 torque_vector = Vector3(0, 0, 4)
+min_xz_force = 3.0
+max_xz_force = 15.0
+min_y_force = 5.0
+max_y_force = 15.0
 charge_bar = NodePath("Sprite3D/SubViewport/HitBar")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=602623730]

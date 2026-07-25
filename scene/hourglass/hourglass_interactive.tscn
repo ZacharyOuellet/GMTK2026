@@ -15,7 +15,6 @@ freeze = true
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_davmd")
-impulse_magnitude = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2101846453]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0.5736325, 0)
@@ -23,6 +22,5 @@ shape = SubResource("SphereShape3D_mwwfv")
 
 [node name="Hourglass" parent="." unique_id=785185120 instance=ExtResource("2_y3yqi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.573, 0)
-spins_on_pause = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -19,6 +19,8 @@ extends CharacterBody3D
 
 @export_group("External nodes")
 @export var hourglass : RigidBody3D
+
+@export_group("Internal nodes")
 @export var charge_bar : ChargeBar
 
 @export_group("Debug/placeholder settings")
@@ -111,3 +113,4 @@ func _on_hit_request(power: float):
 	hit_vector.y =  lerp(min_y_force, max_y_force, power)
 	hit_vector.z *= speed_ratio_z_axis
 	hourglass.hit(hit_vector, torque_vector)
+	GlobalJuiceMachine.request_shake(power, 0.2)

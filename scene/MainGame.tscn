@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d61irsi7l65p"]
 
 [ext_resource type="PackedScene" uid="uid://cr3l7x8g53tq4" path="res://scene/player/player.tscn" id="1_2m57j"]
+[ext_resource type="Script" uid="uid://cvfere1ij00c" path="res://scene/camera.gd" id="2_6fdoo"]
 [ext_resource type="PackedScene" uid="uid://di73a14l3rof0" path="res://scene/hourglass/hourglass_interactive.tscn" id="3_ud66n"]
 [ext_resource type="PackedScene" uid="uid://jblwxwn28o14" path="res://scene/ui/main_ui.tscn" id="4_6fdoo"]
 
@@ -58,6 +59,7 @@ albedo_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2091930083]
 transform = Transform3D(1, 0, 0, 0, 0.9707164, 0.24022803, 0, -0.24022803, 0.9707164, 0, 30, 110)
 fov = 9.0
+script = ExtResource("2_6fdoo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=663757528]
 transform = Transform3D(0.9612617, 0, -0.27563736, 0, 1, 0, 0.27563736, 0, 0.9612617, 0, 1, 0)
