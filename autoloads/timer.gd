@@ -12,7 +12,7 @@ signal max_time_wasChanged(new_max_time: float)
 signal delta_time_percentage(delta_time_percent: float)
 signal currentTime_percentage(_current_time_percent: float)
 signal time_out()
-signal time_reversed()
+signal time_reversed(is_reversed: bool)
 
 
 # Called when the node enters the scene tree for the first time.
