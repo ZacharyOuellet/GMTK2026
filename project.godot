@@ -90,14 +90,3 @@ hit_2={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-
-[shader_globals]
-
-player2Color={
-"type": "color",
-"value": Color(0, 0, 1, 1)
-}
-player1Color={
-"type": "color",
-"value": Color(1, 0, 0, 1)
-}
