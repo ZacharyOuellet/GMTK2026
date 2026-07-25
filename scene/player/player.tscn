@@ -14,7 +14,6 @@ viewport_path = NodePath("Sprite3D/SubViewport")
 axis_lock_linear_y = true
 script = ExtResource("1_v7pse")
 charging_bar = NodePath("Sprite3D/SubViewport/Control")
-impulse_magnitude_y_axis = 2.0
 torque_vector = Vector3(0, 0, 4)
 sin_period = 5.0
 

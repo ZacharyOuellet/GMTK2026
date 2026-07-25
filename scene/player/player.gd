@@ -16,9 +16,11 @@ extends CharacterBody3D
 @export var torque_vector : Vector3 = Vector3(0, 0, 1)
 @export var sin_period : float = 0.5
 @export var sin_mag : float = 50
+@export var min_xz_force : float = 0.5
+@export var max_xz_force : float = 3
+@export var min_y_force : float = 1
+@export var max_y_force : float = 3
 
-var direction : Vector2
-var impulse_vector : Vector3
 var is_charging : bool
 var charge_start_time : float
 
@@ -53,11 +55,9 @@ func charge_hourglass() -> void:
 	if is_hitting():
 		is_charging = false
 		var charge_magnitude = calculate_force_magnitude(Time.get_ticks_msec() - charge_start_time)
-		impulse_vector = hourglass.position - position
-		impulse_vector.y = impulse_magnitude_y_axis
-		var normalized_vector : Vector3 = impulse_vector.normalized()
-		#normalized_vector.y = impulse_magnitude_y_axis
-		var hit_vector : Vector3 = normalized_vector * charge_magnitude/25
+		var impulse_vector : Vector3 = hourglass.position - position
+		var hit_vector : Vector3 = impulse_vector.normalized() * lerp(min_xz_force, max_xz_force, charge_magnitude/100)
+		hit_vector.y =  lerp(min_y_force, max_y_force, charge_magnitude/100)
 		hourglass.hit(hit_vector, torque_vector)
 		charging_bar.value = 0
 		$Sprite3D.visible = false
@@ -66,6 +66,7 @@ func calculate_force_magnitude(charging_time : float) -> float:
 	return (sin(charging_time / 1000 * sin_period - PI/2) + 1) * sin_mag
 
 func player_movement() -> void:
+	var direction : Vector2 = Vector2.ZERO 
 	if player_id == 1:
 		direction = Input.get_vector("left_1", "right_1", "up_1", "down_1")
 	if player_id == 2:
