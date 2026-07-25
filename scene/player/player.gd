@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export_group("Controls")
 @export var speed : int = 10
 @export var speed_ratio_z_axis : float = 2.5
+@export var dash_speed_multiplier : float = 25
 
 
 @export_group("Hit settings")
@@ -58,13 +59,19 @@ func charge_hourglass() -> void:
 
 func player_movement() -> void:
 	var direction : Vector2 = Vector2.ZERO 
+	var dash = false;
 	if player_id == 1:
 		direction = Input.get_vector("left_1", "right_1", "up_1", "down_1")
+		dash = (Input.is_action_just_pressed("dash_1") or Input.is_action_just_pressed("dash_1")) and PowerUpManager.is_power_up_available(player_id, PowerUpManager.PowerUpType.DASH)
 	if player_id == 2:
 		direction = Input.get_vector("left_2", "right_2", "up_2", "down_2")
-	
-	velocity.x = direction.x * speed
-	velocity.z = direction.y * speed * speed_ratio_z_axis
+		dash = (Input.is_action_just_pressed("dash_2") or Input.is_action_just_pressed("dash_2")) and PowerUpManager.is_power_up_available(player_id, PowerUpManager.PowerUpType.DASH)
+
+	if dash:
+		PowerUpManager.reset_power_up(player_id, PowerUpManager.PowerUpType.DASH)
+
+	velocity.x = direction.x * speed if !dash else direction.x * speed * dash_speed_multiplier
+	velocity.z = direction.y * speed * speed_ratio_z_axis if !dash else direction.y * speed * speed_ratio_z_axis * dash_speed_multiplier
 	move_and_slide()
 
 

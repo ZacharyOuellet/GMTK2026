@@ -13,6 +13,8 @@ signal playerHasPowerUp(player_id: int, power_up_type: PowerUpType)
 var power_up_trackers: Array[float] = []
 var power_up_locks: Array[int] = []
 
+# 0: power is available to use, 1: power is not available
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,33 +41,41 @@ func _on_delta_time_percentage(delta_time_percent: float) -> void:
 		power_up_trackers[P1_power_up_index] += delta_time_percent * power_up_locks[P1_power_up_index]
 		power_up_trackers[P2_power_up_index] -= delta_time_percent * power_up_locks[P2_power_up_index]
 
-		# print("player 1 power up %d is %f" % [i, power_up_trackers[P1_power_up_index]])
-		# print("player 2 power up %d is %f" % [i, power_up_trackers[P2_power_up_index]])
-		# print("=========")
 
 		if power_up_trackers[P1_power_up_index] >= PowerUpThresholds[i] and power_up_locks[P1_power_up_index] == 1:
+			print("Player 1 has power up %d" % i)
 			givePowerUp(1, i)
 		if power_up_trackers[P2_power_up_index] >= PowerUpThresholds[i] and power_up_locks[P2_power_up_index] == 1:
+			print("Player 2 has power up %d" % i)
 			givePowerUp(2, i)
 
 
 func givePowerUp(player_id: int, power_up_type: PowerUpType) -> void:
 	var index = (player_id - 1) * PowerUpType.size() + power_up_type
 	power_up_trackers[index] = 0
-	print("Player %d has power up %d" % [player_id, power_up_type])
+	# print("Player %d has power up %d" % [player_id, power_up_type])
 	playerHasPowerUp.emit(player_id, power_up_type)
-	lock_power_up(player_id, power_up_type)
+	_lock_power_up(player_id, power_up_type)
 
 func reset_power_up(player_id: int, power_up_type: PowerUpType) -> void:
 	var index = (player_id - 1) * PowerUpType.size() + power_up_type
 	power_up_trackers[index] = 0
-	unlock_power_up(player_id, power_up_type)
+	_unlock_power_up(player_id, power_up_type)
 	
-func lock_power_up(player_id: int, power_up_type: PowerUpType) -> void:
+func _lock_power_up(player_id: int, power_up_type: PowerUpType) -> void:
 	var index = (player_id - 1) * PowerUpType.size() + power_up_type
 	power_up_locks[index] = 0
-	print("locked power up %d for player %d" % [power_up_type, player_id])
+	# print("locked power up %d for player %d" % [power_up_type, player_id])
 
-func unlock_power_up(player_id: int, power_up_type: PowerUpType) -> void:
+func _unlock_power_up(player_id: int, power_up_type: PowerUpType) -> void:
 	var index = (player_id - 1) * PowerUpType.size() + power_up_type
 	power_up_locks[index] = 1
+	# print("unlocked power up %d for player %d" % [power_up_type, player_id])
+
+# 0: power is available to use, 1: power is not available
+func is_power_up_available(player_id: int, power_up_type: PowerUpType) -> bool:
+	# print("Checking if power up %d is available for player %d" % [power_up_type, player_id])
+	var index = (player_id - 1) * PowerUpType.size() + power_up_type
+	# print("power_up_locks[%d] = %d" % [index, power_up_locks[index]])
+	# print(power_up_locks[index] == 0)
+	return power_up_locks[index] == 0

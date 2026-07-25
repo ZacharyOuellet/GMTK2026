@@ -4,3 +4,4 @@
 
 [node name="Timer" type="Node" unique_id=305651421]
 script = ExtResource("1_o456q")
+initial_max_time = 20.0
