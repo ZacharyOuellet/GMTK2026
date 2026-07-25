@@ -1,18 +1,23 @@
 extends Node
 @export var initial_max_time: float = 20;
 
-var running = false
+
+var is_running = false :
+		set(value):
+			is_running = value
+			toggled_play_pause.emit(is_running)
 
 var current_max_time: float
 var half_time: float;
 var _currentTime: float = 0;
 
-var _reverse_time: bool = false;
+var _time_direction: Enums.TimeDirection = Enums.TimeDirection.FORWARD;
 signal max_time_wasChanged(new_max_time: float)
 signal delta_time_percentage(delta_time_percent: float)
 signal currentTime_percentage(_current_time_percent: float)
 signal time_out()
-signal time_reversed()
+signal time_reversed(_time_direction: Enums.TimeDirection)
+signal toggled_play_pause(is_running: bool)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,22 +26,21 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(dt: float) -> void:
-	if (!running): return
+	if (!is_running): return
 
 	var delta_time = 0;
 
-	if !_reverse_time:
-		delta_time = dt;
-	else:
-		delta_time = - dt;
-
+	match _time_direction:
+		Enums.TimeDirection.FORWARD:
+			delta_time = dt;
+		Enums.TimeDirection.BACKWARD:
+			delta_time = -dt;
 	_emit_delta_time_as_percentage(delta_time);
 	_currentTime += delta_time
 	currentTime_percentage.emit(get_time_as_percentage());
-	print(get_time_as_percentage())
 	if _currentTime >= current_max_time or _currentTime < 0:
 		time_out.emit();
-		running = false
+		is_running = false
 
 
 func set_max_time(new_time: float) -> void:
@@ -49,17 +53,20 @@ func get_time_as_percentage() -> float:
 	return _currentTime / current_max_time;
 
 func get_remaining_total_time_ratio() -> float:
-	print(current_max_time / initial_max_time)
 	return current_max_time / initial_max_time
 
 func reverse_time() -> void:
-	_reverse_time = !_reverse_time;
-	time_reversed.emit();
+	match _time_direction:
+		Enums.TimeDirection.FORWARD:
+			_time_direction = Enums.TimeDirection.BACKWARD;
+		Enums.TimeDirection.BACKWARD:
+			_time_direction = Enums.TimeDirection.FORWARD;
+	time_reversed.emit(_time_direction);
 
 func reset() -> void:
 	set_max_time(initial_max_time)
 	_currentTime = half_time
-	running = true
+	is_running = true
 
 
 func _emit_delta_time_as_percentage(delta_time: float) -> void:
