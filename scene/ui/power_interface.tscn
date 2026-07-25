@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dhbm6mbw0wt4"]
+
+[ext_resource type="Script" uid="uid://da5gkg2vuys62" path="res://scene/player/charge_bar.gd" id="1_isgl1"]
+
+[node name="PowerInterface" type="Control" unique_id=2077944849]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=442019639]
+layout_mode = 0
+offset_top = 261.0
+offset_right = 1153.0
+offset_bottom = 366.0
+theme_override_constants/separation = 1000
+alignment = 1
+
+[node name="HBoxContainer3" type="VBoxContainer" parent="HBoxContainer" unique_id=1669389115]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/HBoxContainer3" unique_id=1747276104]
+layout_mode = 2
+text = "Player 2
+Dash"
+
+[node name="ChargeBar" type="ProgressBar" parent="HBoxContainer/HBoxContainer3" unique_id=1465412856]
+layout_mode = 2
+script = ExtResource("1_isgl1")
+metadata/_custom_type_script = "uid://da5gkg2vuys62"
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=839086688]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/HBoxContainer2" unique_id=1334960851]
+layout_mode = 2
+text = "Player 1
+Dash"
+
+[node name="ChargeBar" type="ProgressBar" parent="HBoxContainer/HBoxContainer2" unique_id=917241332]
+layout_mode = 2
+script = ExtResource("1_isgl1")
+metadata/_custom_type_script = "uid://da5gkg2vuys62"
