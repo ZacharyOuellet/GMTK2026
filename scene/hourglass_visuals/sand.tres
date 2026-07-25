@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://2ii6mtt8pe6i"]
+
+[ext_resource type="Shader" uid="uid://d4h0y2exoey0e" path="res://scene/hourglass_visuals/hourglass.gdshader" id="1_wune1"]
+[ext_resource type="Texture2D" uid="uid://bb2whbbbsduou" path="res://scene/hourglass_visuals/Sand4_N.jpg" id="2_biqiq"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_wune1")
+shader_parameter/bottom = 0.01
+shader_parameter/top = 1.16
+shader_parameter/glassThickness = 0.035
+shader_parameter/globalFill = 0.81600003876
+shader_parameter/sideBias = 0.0
+shader_parameter/uv_scale = 2.8400001349000004
+shader_parameter/texture_normal = ExtResource("2_biqiq")
+shader_parameter/normal_depth = 0.8590000408025
+shader_parameter/normal_brightness_min = 0.2990000142025
+shader_parameter/normal_brightness_power = 0.61900002614262
+shader_parameter/normal_color_effect = 0.8450000401375
+shader_parameter/speed_scale = 0.075
+shader_parameter/streamRadius = 0.01
+shader_parameter/bump_height = 0.1
