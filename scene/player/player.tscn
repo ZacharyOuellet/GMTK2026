@@ -6,22 +6,11 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pa3om"]
 
-[sub_resource type="GDScript" id="GDScript_v7pse"]
-script/source = "extends MeshInstance3D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=308101449]
+axis_lock_linear_y = true
 script = ExtResource("1_v7pse")
+impulse_magnitude_y_axis = 2.0
+torque_vector = Vector3(0, 0, 1000)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=602623730]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -30,4 +19,3 @@ shape = SubResource("CapsuleShape3D_pa3om")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=563245823]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_pa3om")
-script = SubResource("GDScript_v7pse")

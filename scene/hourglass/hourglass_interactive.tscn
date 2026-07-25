@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://di73a14l3rof0"]
+
+[ext_resource type="Script" uid="uid://pk8xhshw0lwq" path="res://scene/hourglass/hourglass.gd" id="1_davmd"]
+[ext_resource type="PackedScene" uid="uid://b2astgnf5ehfs" path="res://scene/hourglass/hourglass.tscn" id="2_y3yqi"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3bvl0"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pa3om"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3bvl0"]
+albedo_color = Color(0.98039216, 0.8039216, 0.21176471, 1)
+metallic = 1.0
+roughness = 0.55
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=498183243]
+freeze = true
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_davmd")
+impulse_magnitude = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2101846453]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.75, 0)
+shape = SubResource("CylinderShape3D_3bvl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=548404345]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.75, 0)
+visible = false
+mesh = SubResource("CylinderMesh_pa3om")
+surface_material_override/0 = SubResource("StandardMaterial3D_3bvl0")
+
+[node name="Hourglass" parent="." unique_id=785185120 instance=ExtResource("2_y3yqi")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

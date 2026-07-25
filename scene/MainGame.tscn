@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://d61irsi7l65p"]
 
 [ext_resource type="PackedScene" uid="uid://cr3l7x8g53tq4" path="res://scene/player/player.tscn" id="1_2m57j"]
+[ext_resource type="PackedScene" uid="uid://c5k6sr11hx08o" path="res://scene/timer/timer.tscn" id="2_owwni"]
+[ext_resource type="PackedScene" uid="uid://di73a14l3rof0" path="res://scene/hourglass/hourglass_interactive.tscn" id="3_ud66n"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bpmhk"]
 
@@ -57,18 +59,22 @@ fov = 9.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=663757528]
 transform = Transform3D(0.9612617, 0, -0.27563736, 0, 1, 0, 0.27563736, 0, 0.9612617, 0, 1, 0)
+visible = false
 mesh = SubResource("BoxMesh_bpmhk")
 
-[node name="Player1" parent="." unique_id=308101449 instance=ExtResource("1_2m57j")]
+[node name="Player1" parent="." unique_id=308101449 node_paths=PackedStringArray("hourglass") instance=ExtResource("1_2m57j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1416526, 0, 4.2101316)
+hourglass = NodePath("../Hourglass")
 
-[node name="Player2" parent="." unique_id=1753972874 instance=ExtResource("1_2m57j")]
+[node name="Player2" parent="." unique_id=1753972874 node_paths=PackedStringArray("hourglass") instance=ExtResource("1_2m57j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0571804, 0, 0)
 player_id = 2
+hourglass = NodePath("../Hourglass")
 
 [node name="Environment" type="Node3D" parent="." unique_id=127246524]
+metadata/_edit_lock_ = true
 
-[node name="Ground" type="StaticBody3D" parent="Environment" unique_id=290701688]
+[node name="Ground" type="StaticBody3D" parent="Environment" unique_id=290701688 groups=["Ground"]]
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Ground" unique_id=940561096]
@@ -142,3 +148,10 @@ metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1369715394]
 transform = Transform3D(0.8405665, 0.4038304, -0.36106607, 0, 0.6665324, 0.745476, 0.5417081, -0.6266222, 0.56026495, -10.29, 33.862, 33.691)
+shadow_enabled = true
+directional_shadow_max_distance = 150.0
+
+[node name="Timer" parent="." unique_id=2060548930 instance=ExtResource("2_owwni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5553694, 0, -0.0065903664)
+
+[node name="Hourglass" parent="." unique_id=498183243 instance=ExtResource("3_ud66n")]
