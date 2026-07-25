@@ -1,16 +1,22 @@
 [gd_scene format=3 uid="uid://cr3l7x8g53tq4"]
 
 [ext_resource type="Script" uid="uid://cylo88e7j58gv" path="res://scene/player/player.gd" id="1_v7pse"]
+[ext_resource type="PackedScene" uid="uid://23uagdxas2kv" path="res://progress_bar.tscn" id="2_cm2cf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pa3om"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pa3om"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=308101449]
+[sub_resource type="ViewportTexture" id="ViewportTexture_v5s5d"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=308101449 node_paths=PackedStringArray("charging_bar")]
 axis_lock_linear_y = true
 script = ExtResource("1_v7pse")
+charging_bar = NodePath("Sprite3D/SubViewport/Control")
 impulse_magnitude_y_axis = 2.0
-torque_vector = Vector3(0, 0, 1000)
+torque_vector = Vector3(0, 0, 4)
+sin_period = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=602623730]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -19,3 +25,14 @@ shape = SubResource("CapsuleShape3D_pa3om")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=563245823]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_pa3om")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=439869142]
+transform = Transform3D(0.745, 0, 0, 0, 0.745, 0, 0, 0, 0.745, 0, 0.3, 2.4)
+visible = false
+texture = SubResource("ViewportTexture_v5s5d")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=212741657]
+snap_2d_vertices_to_pixel = true
+size = Vector2i(512, 77)
+
+[node name="Control" parent="Sprite3D/SubViewport" unique_id=701509448 instance=ExtResource("2_cm2cf")]
