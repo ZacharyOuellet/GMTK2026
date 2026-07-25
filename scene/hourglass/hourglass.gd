@@ -2,14 +2,6 @@ extends RigidBody3D
 
 @export var impulse_magnitude : int = 1
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	body_entered.connect(_on_body_entered)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func hit(normalized_vector: Vector3, torque_vector : Vector3) -> void: 
 	collision_layer = 2

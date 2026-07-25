@@ -24,9 +24,6 @@ func _ready() -> void:
 		power_up_trackers[i] = 0
 		power_up_locks[i] = 1
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _on_delta_time_percentage(delta_time_percent: float) -> void:
 	

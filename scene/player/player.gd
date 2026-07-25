@@ -3,7 +3,7 @@ extends CharacterBody3D
 @export_group("Player")
 @export var player_id : int = 1
 @export var speed : int = 10
-@export var speed_ratio_z_axis : int = 2.5
+@export var speed_ratio_z_axis : float = 2.5
 @export var player1_color : Color =  Color(1.0, 0.847, 0.004, 1.0)
 @export var player2_color : Color = Color(0.302, 0.0, 0.976, 1.0)
 @export var charging_bar : ProgressBar
@@ -28,12 +28,7 @@ var charge_start_time : float
 func _ready() -> void:
 	set_player_color()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
-	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	player_movement()
 	charge_hourglass()
 
