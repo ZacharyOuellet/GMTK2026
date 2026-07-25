@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-@export var impulse_magnitude : int = 10
+@export var impulse_magnitude : int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,13 +18,13 @@ func hit(normalized_vector: Vector3, torque_vector : Vector3) -> void:
 	freeze = false
 	apply_central_impulse(normalized_vector * impulse_magnitude)
 	apply_torque_impulse(torque_vector)
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.1).timeout
 	collision_layer = 1
 	collision_mask = 1 
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Ground"):
-		rotation = Vector3.ZERO
-		position.y = 0
 		freeze = true
-		
+		position = $CollisionShape3D.global_position
+		position.y = 0
+		rotation = Vector3.ZERO
