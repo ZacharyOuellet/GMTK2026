@@ -31,20 +31,23 @@ func _on_delta_time_percentage(delta_time_percent: float) -> void:
 		# if NOT reversed and is first player powers
 		var  P1_power_up_index = i
 		var  P2_power_up_index = i + PowerUpType.size()
-		if TimerGlobal.get_time_direction()==Enums.TimeDirection.FORWARD and i < PowerUpType.size():
+		power_up_trackers[P1_power_up_index] = clamp(power_up_trackers[P1_power_up_index], 0, 1)
+		power_up_trackers[P2_power_up_index] = clamp(power_up_trackers[P2_power_up_index], 0, 1)
+		
 			# slightly scuffed as instead of preventing operatiion I am just multiplying by 0. Will change if time permits
 			# just usings ifs is probably better but I am lazy :P 
-			power_up_trackers[P1_power_up_index] += delta_time_percent * power_up_locks[P1_power_up_index]
-			power_up_trackers[P2_power_up_index] -= delta_time_percent * power_up_locks[P2_power_up_index]
-		else:
-			power_up_trackers[P2_power_up_index] += delta_time_percent * power_up_locks[P2_power_up_index]
-			power_up_trackers[P1_power_up_index] -= delta_time_percent * power_up_locks[P1_power_up_index]
-		
+		power_up_trackers[P1_power_up_index] += delta_time_percent * power_up_locks[P1_power_up_index]
+		power_up_trackers[P2_power_up_index] -= delta_time_percent * power_up_locks[P2_power_up_index]
+
+		# print("player 1 power up %d is %f" % [i, power_up_trackers[P1_power_up_index]])
+		# print("player 2 power up %d is %f" % [i, power_up_trackers[P2_power_up_index]])
+		# print("=========")
+
 		if power_up_trackers[P1_power_up_index] >= PowerUpThresholds[i] and power_up_locks[P1_power_up_index] == 1:
 			givePowerUp(1, i)
-
 		if power_up_trackers[P2_power_up_index] >= PowerUpThresholds[i] and power_up_locks[P2_power_up_index] == 1:
 			givePowerUp(2, i)
+
 
 func givePowerUp(player_id: int, power_up_type: PowerUpType) -> void:
 	var index = (player_id - 1) * PowerUpType.size() + power_up_type
@@ -61,6 +64,7 @@ func reset_power_up(player_id: int, power_up_type: PowerUpType) -> void:
 func lock_power_up(player_id: int, power_up_type: PowerUpType) -> void:
 	var index = (player_id - 1) * PowerUpType.size() + power_up_type
 	power_up_locks[index] = 0
+	print("locked power up %d for player %d" % [power_up_type, player_id])
 
 func unlock_power_up(player_id: int, power_up_type: PowerUpType) -> void:
 	var index = (player_id - 1) * PowerUpType.size() + power_up_type
