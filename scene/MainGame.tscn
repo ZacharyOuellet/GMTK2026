@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cr3l7x8g53tq4" path="res://scene/player/player.tscn" id="1_2m57j"]
 [ext_resource type="PackedScene" uid="uid://c5k6sr11hx08o" path="res://scene/timer/timer.tscn" id="2_owwni"]
 [ext_resource type="PackedScene" uid="uid://di73a14l3rof0" path="res://scene/hourglass/hourglass_interactive.tscn" id="3_ud66n"]
+[ext_resource type="PackedScene" uid="uid://jblwxwn28o14" path="res://scene/ui/main_ui.tscn" id="4_6fdoo"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bpmhk"]
 
@@ -52,6 +53,8 @@ orientation = 2
 albedo_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
 
 [node name="MainGame" type="Node3D" unique_id=1631344264]
+
+[node name="MainUi" parent="." unique_id=281116502 instance=ExtResource("4_6fdoo")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2091930083]
 transform = Transform3D(1, 0, 0, 0, 0.9707164, 0.24022803, 0, -0.24022803, 0.9707164, 0, 30, 110)
