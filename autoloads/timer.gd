@@ -1,5 +1,5 @@
 extends Node
-@export var initial_max_time: float = 20;
+@export var initial_max_time: float = 30;
 
 
 var is_running = false:
