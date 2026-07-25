@@ -35,19 +35,14 @@ func apply_noise_shake(intensity, duration) -> void:
 func _process(delta: float) -> void:
 	# Fade out the intensity over time
 	var progress := 1 - (end_time - Time.get_ticks_msec()) / duration_ms
-	print("PROG:", progress)
 	if progress >= 1:
 		position = initial_pos
 		return
 	shake_strength = lerp(intensity, 0.0, progress)
-	print("Strength: ", shake_strength)
-	print("initial: ", initial_pos)
 	position = initial_pos
 	# Shake by adjusting camera.offset so we can move the camera around the level via it's position
 	var offset := get_noise_offset(delta)
-	print(offset)
 	position += offset
-	print("offseted: ", position)
 
 
 func get_noise_offset(delta: float) -> Vector3:
