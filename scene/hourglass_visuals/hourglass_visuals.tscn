@@ -50,7 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.573, 0)
 [node name="HR_T_glass_1" parent="PR_hourglass/HR_T_houglassGr_1/HR_T_glassGr_1" parent_id_path=PackedInt32Array(1679421946, 972844100) index="0" unique_id=336556476]
 surface_material_override/0 = ExtResource("1_cjcbs")
 
-[node name="sand" type="MeshInstance3D" parent="PR_hourglass/HR_T_houglassGr_1/HR_T_glassGr_1/HR_T_glass_1" index="0" unique_id=1753987843]
+[node name="Sand" type="MeshInstance3D" parent="PR_hourglass/HR_T_houglassGr_1/HR_T_glassGr_1/HR_T_glass_1" index="0" unique_id=1753987843]
 unique_name_in_owner = true
 mesh = SubResource("ArrayMesh_ce4td")
 surface_material_override/0 = ExtResource("2_jpvww")

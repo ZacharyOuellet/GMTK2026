@@ -30,7 +30,7 @@ var player_on_top: int = 1;
 
 var _current_spin_speed: float = 0.0
 
-@onready var sand_mat: ShaderMaterial = %sand.get_surface_override_material(0)
+@onready var sand_mat: ShaderMaterial = %Sand.get_surface_override_material(0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
