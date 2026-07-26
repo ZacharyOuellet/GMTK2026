@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c3f17bkinp8eo"]
+
+[ext_resource type="Texture2D" uid="uid://cnqk3um4guuu5" path="res://artDepart/GMTK2026_v01/sourceimages/texture/props/hourglass/opacity_1.1001.png" id="1_64fqj"]
+[ext_resource type="Texture2D" uid="uid://dbmq5drmponxd" path="res://artDepart/GMTK2026_v01/sourceimages/texture/props/hourglass/openPBR_shader1_Roughness.1001.png" id="2_4ywg2"]
+
+[resource]
+transparency = 1
+blend_mode = 3
+depth_draw_mode = 1
+roughness_texture = ExtResource("2_4ywg2")
+refraction_enabled = true
+refraction_scale = -0.48
+refraction_texture = ExtResource("1_64fqj")
+refraction_texture_channel = 4
+detail_enabled = true
+detail_blend_mode = 1
+detail_albedo = ExtResource("1_64fqj")
