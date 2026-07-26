@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cvbc6qeo7sw2q"]
 
 [ext_resource type="Script" uid="uid://dnh7yvaqq3ftk" path="res://scene/ui/win_scene.gd" id="1_14shr"]
-[ext_resource type="Material" uid="uid://bunvt1vnqkbb1" path="res://materials/player/red_head.tres" id="2_1iw1h"]
+[ext_resource type="Material" uid="uid://6trwi6vrt6h5" path="res://materials/player/red_plastic.tres" id="2_m3acl"]
 [ext_resource type="Texture2D" uid="uid://cqwcokqts84fi" path="res://materials/cardboard/paper_0012_color_1k.jpg" id="2_xgiw5"]
 [ext_resource type="FontFile" uid="uid://r4fnlknwxgm2" path="res://Fonts/Chalk Dash.ttf" id="3_1iw1h"]
-[ext_resource type="Material" uid="uid://tyytbdrmacvt" path="res://materials/player/blue_head.tres" id="3_m3acl"]
+[ext_resource type="Material" uid="uid://c1jpxjr5g6775" path="res://materials/player/blue_plastic.tres" id="3_sufyk"]
 [ext_resource type="FontFile" uid="uid://bwoddkpf4drp0" path="res://Fonts/Chalk.otf" id="4_m3acl"]
 [ext_resource type="PackedScene" uid="uid://cr3l7x8g53tq4" path="res://scene/player/player.tscn" id="5_xgiw5"]
 
@@ -43,7 +43,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_xgiw5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5uqet"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
 [sub_resource type="Environment" id="Environment_7wpeb"]
@@ -57,8 +57,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_14shr")
 materials_override = Dictionary[String, Material]({
-"Blue": ExtResource("3_m3acl"),
-"Red": ExtResource("2_1iw1h")
+"Blue": ExtResource("3_sufyk"),
+"Red": ExtResource("2_m3acl")
 })
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2045286075]
@@ -126,7 +126,7 @@ unique_name_in_owner = true
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, -0.405, 0)
 
 [node name="Sprite3D" parent="SubViewportContainer/SubViewport/Player" index="2" unique_id=439869142]
-texture = SubResource("ViewportTexture_xgiw5")
+texture = SubResource("ViewportTexture_5uqet")
 
 [node name="ExclamationPoint" parent="SubViewportContainer/SubViewport/Player" index="3" unique_id=1769636405]
 visible = false

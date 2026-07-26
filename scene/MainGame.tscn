@@ -8,8 +8,8 @@
 [ext_resource type="Material" uid="uid://dgsdcqqbpqehi" path="res://materials/cardboard/cardboard2.tres" id="5_1crwq"]
 [ext_resource type="PackedScene" uid="uid://dhbm6mbw0wt4" path="res://scene/ui/power_interface.tscn" id="5_2gnev"]
 [ext_resource type="Material" uid="uid://dr60ugc4lpu8r" path="res://materials/cardboard/cardboard1.tres" id="5_gjcpk"]
-[ext_resource type="Material" uid="uid://bunvt1vnqkbb1" path="res://materials/player/red_head.tres" id="5_ufh7j"]
-[ext_resource type="Material" uid="uid://tyytbdrmacvt" path="res://materials/player/blue_head.tres" id="6_dp8j0"]
+[ext_resource type="Material" uid="uid://6trwi6vrt6h5" path="res://materials/player/red_plastic.tres" id="5_ufh7j"]
+[ext_resource type="Material" uid="uid://c1jpxjr5g6775" path="res://materials/player/blue_plastic.tres" id="6_dp8j0"]
 [ext_resource type="Material" uid="uid://b40fxi20p1msg" path="res://materials/cardboard/cardboard1_side.tres" id="6_vh5o8"]
 
 [sub_resource type="Environment" id="Environment_vh5o8"]
