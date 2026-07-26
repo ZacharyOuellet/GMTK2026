@@ -11,8 +11,11 @@
 [node name="AudioManager" type="Node3D" unique_id=915390739]
 script = ExtResource("1_n7h83")
 hit_audio_stream = ExtResource("2_bntsi")
+hit_audio_volume = 0.8
 dash_audio_stream = ExtResource("3_eeu3u")
 bounce_audio_stream = ExtResource("4_3yauf")
 hit_ground_audio_stream = ExtResource("5_3yauf")
+hit_ground_audio_volume = 1.5
 move_audio_stream = ExtResource("5_por5f")
 music_audio_stream = ExtResource("7_por5f")
+music_audio_volume = 0.7

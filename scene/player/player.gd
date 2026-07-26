@@ -74,6 +74,7 @@ func player_movement() -> void:
 	velocity.z = direction.y * speed * speed_ratio_z_axis if !dash else direction.y * speed * speed_ratio_z_axis * dash_speed_multiplier
 	if dash:
 		PowerUpManager.reset_power_up(player_id, PowerUpManager.PowerUpType.DASH)
+		AudioManager.play_audio_by_type(AudioManager.AudioType.DASH)
 		_generate_dash_afterimage(velocity)
 	
 	if(velocity.length() > 0):
