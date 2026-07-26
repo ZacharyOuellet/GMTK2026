@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b0rf8guu2xq7n"]
+
+[ext_resource type="Texture2D" uid="uid://dkiek424dfnfv" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoD/MT_T_feets_1_BaseColor.1001.png" id="1_4o02m"]
+[ext_resource type="Texture2D" uid="uid://bvj3tknp13mlw" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoD/MT_T_feets_1_Normal.1001.png" id="2_3cews"]
+[ext_resource type="Texture2D" uid="uid://b0m0neuphtyxg" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoD/MT_T_feets_1_Roughness.1001.png" id="3_ufnoy"]
+
+[resource]
+albedo_texture = ExtResource("1_4o02m")
+roughness_texture = ExtResource("3_ufnoy")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("2_3cews")

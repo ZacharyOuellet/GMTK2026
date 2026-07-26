@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dit00viv6ser8"]
+
+[ext_resource type="Texture2D" uid="uid://b70lu3leiuxwx" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoD/MT_T_hair_1_BaseColor.png" id="1_j517w"]
+[ext_resource type="Texture2D" uid="uid://b6jpb7u8rxsxy" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoD/MT_T_hair_1_Normal.png" id="2_d8e1p"]
+[ext_resource type="Texture2D" uid="uid://bsy6kh83y26ot" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoD/MT_T_hair_1_Roughness.png" id="3_2ay1m"]
+
+[resource]
+albedo_texture = ExtResource("1_j517w")
+roughness_texture = ExtResource("3_2ay1m")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("2_d8e1p")

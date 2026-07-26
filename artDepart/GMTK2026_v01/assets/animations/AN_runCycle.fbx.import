@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dogiopyugsnmq"
-path="res://.godot/imported/CH_persoA_2.fbx-7092b6712128e34d762e130c90196b9a.scn"
+uid="uid://phypcdl4yyl3"
+path="res://.godot/imported/AN_runCycle.fbx-d065e53e062a10c360ae4eedbebb19a9.scn"
 
 [deps]
 
-source_file="res://artDepart/GMTK2026_v01/assets/persoA/CH_persoA_2.fbx"
-dest_files=["res://.godot/imported/CH_persoA_2.fbx-7092b6712128e34d762e130c90196b9a.scn"]
+source_file="res://artDepart/GMTK2026_v01/assets/animations/AN_runCycle.fbx"
+dest_files=["res://.godot/imported/AN_runCycle.fbx-d065e53e062a10c360ae4eedbebb19a9.scn"]
 
 [params]
 
@@ -19,7 +19,7 @@ nodes/root_script=null
 mesh_library/use_node_names_as_mesh_names=false
 array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=100.0
 nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
@@ -38,8 +38,16 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 materials/extract=0
 materials/extract_format=0
-materials/extract_path=""
-_subresources={}
+materials/extract_path="res://art_integre"
+_subresources={
+"materials": {
+"openPBR_shader1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_integre/openPBR_shader1.tres",
+"use_external/path": "uid://c1lcu5ofd2v4n"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

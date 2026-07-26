@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c0qmjcs5cvqyk"]
+
+[ext_resource type="Texture2D" uid="uid://dq1nh1vsb0hsu" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoD/MT_T_jointMembers_1_BaseColor.1001.png" id="1_me64r"]
+[ext_resource type="Texture2D" uid="uid://gvhytkhhe8sm" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoD/MT_T_jointMembers_1_Metalness.1001.png" id="2_dm08j"]
+[ext_resource type="Texture2D" uid="uid://bosvc2ce1pse" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoD/MT_T_jointMembers_1_Normal.1001.png" id="3_hirdf"]
+[ext_resource type="Texture2D" uid="uid://b6ysbn20tmyn2" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoD/MT_T_jointMembers_1_Roughness.1001.png" id="4_ldrne"]
+
+[resource]
+albedo_texture = ExtResource("1_me64r")
+metallic = 1.0
+metallic_texture = ExtResource("2_dm08j")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("4_ldrne")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("3_hirdf")

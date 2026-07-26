@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ojsati0x2odi"]
+
+[ext_resource type="Texture2D" uid="uid://x2f65s3imdvc" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoD/MT_T_pelvis_1_BaseColor.1001.png" id="1_xsopm"]
+[ext_resource type="Texture2D" uid="uid://dhxdktdl5nvnt" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoD/MT_T_pelvis_1_Normal.1001.png" id="2_w3v4y"]
+[ext_resource type="Texture2D" uid="uid://kdxn2msfawtt" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoD/MT_T_pelvis_1_Roughness.1001.png" id="3_f17md"]
+
+[resource]
+albedo_texture = ExtResource("1_xsopm")
+roughness_texture = ExtResource("3_f17md")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("2_w3v4y")

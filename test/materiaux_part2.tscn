@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b1lir24ybc0bk"]
+
+[ext_resource type="PackedScene" uid="uid://ckb3bjhd7xfyq" path="res://artDepart/GMTK2026_v01/assets/persoA/CH_persoA_3.fbx" id="1_qoc1g"]
+[ext_resource type="Animation" uid="uid://dwxayp3kjmq8b" path="res://artDepart/GMTK2026_v01/assets/persoA/AN_hitSkeleton_1.res" id="2_qoc1g"]
+[ext_resource type="PackedScene" uid="uid://c8kg3eief3if" path="res://artDepart/GMTK2026_v01/assets/persoD/CH_persoD_1.fbx" id="4_27b4j"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_27b4j"]
+_data = {
+&"AN_hitSkeleton_1": ExtResource("2_qoc1g")
+}
+
+[node name="Node3D" type="Node3D" unique_id=46131000]
+
+[node name="CH_persoA_3" parent="." unique_id=1004728934 instance=ExtResource("1_qoc1g")]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CH_persoA_3" unique_id=108993089]
+libraries/anim = SubResource("AnimationLibrary_27b4j")
+
+[node name="CH_persoD_1" parent="." unique_id=1708196115 instance=ExtResource("4_27b4j")]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, 0, 0)
