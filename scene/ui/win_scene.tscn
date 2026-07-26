@@ -43,7 +43,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5uqet"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_m3acl"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
 [sub_resource type="Environment" id="Environment_7wpeb"]
@@ -126,7 +126,7 @@ unique_name_in_owner = true
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, -0.405, 0)
 
 [node name="Sprite3D" parent="SubViewportContainer/SubViewport/Player" index="2" unique_id=439869142]
-texture = SubResource("ViewportTexture_5uqet")
+texture = SubResource("ViewportTexture_m3acl")
 
 [node name="ExclamationPoint" parent="SubViewportContainer/SubViewport/Player" index="3" unique_id=1769636405]
 visible = false

@@ -8,6 +8,7 @@ func _ready() -> void:
 	$Result.text = color + " player wins!"
 	%Player.player_material_override = materials_override[color]
 	%Player._ready()
+	%Player.speed = 0
 	# TODO do something else than just print the winner
 
 func _on_replay():
