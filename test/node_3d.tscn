@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://b7spotmdj0ttw"]
 
 [ext_resource type="PackedScene" uid="uid://4fjuo316gjsh" path="res://artDepart/GMTK2026_v01/assets/persoA/EX_persoFBX_test.fbx" id="1_nd1li"]
+[ext_resource type="PackedScene" uid="uid://c1cl7t6pj7m7n" path="res://artDepart/GMTK2026_v01/assets/hourglass/PR_hourglass.fbx" id="2_irbvn"]
 
 [node name="Node3D" type="Node3D" unique_id=219820476]
 
 [node name="EX_persoFBX_test" parent="." unique_id=444910395 instance=ExtResource("1_nd1li")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0.0037401393, 0, 0.010521933)
+visible = false
+
+[node name="PR_hourglass" parent="." unique_id=1361610371 instance=ExtResource("2_irbvn")]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0)
+
+[editable path="PR_hourglass"]

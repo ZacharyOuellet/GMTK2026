@@ -1,0 +1,23 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cbxwwbc6elbqs"]
+
+[ext_resource type="Texture2D" uid="uid://bajqvun46vv1i" path="res://artDepart/GMTK2026_v01/sourceimages/texture/props/hourglass/openPBR_shader1_BaseColor.1001.png" id="1_ulvxh"]
+[ext_resource type="Texture2D" uid="uid://cnqk3um4guuu5" path="res://artDepart/GMTK2026_v01/sourceimages/texture/props/hourglass/opacity_1.1001.png" id="2_oh7g1"]
+[ext_resource type="Texture2D" uid="uid://dm6dws6edvmfk" path="res://artDepart/GMTK2026_v01/sourceimages/texture/props/hourglass/openPBR_shader1_Metalness.1001.png" id="3_ks2vu"]
+[ext_resource type="Texture2D" uid="uid://c077irjq6l4mh" path="res://artDepart/GMTK2026_v01/sourceimages/texture/props/hourglass/INV_opacity_1.1001.png" id="3_oh7g1"]
+[ext_resource type="Texture2D" uid="uid://3in8rg504oqq" path="res://artDepart/GMTK2026_v01/sourceimages/texture/props/hourglass/openPBR_shader1_Normal.1001.png" id="4_h2l1g"]
+[ext_resource type="Texture2D" uid="uid://dbmq5drmponxd" path="res://artDepart/GMTK2026_v01/sourceimages/texture/props/hourglass/openPBR_shader1_Roughness.1001.png" id="5_ne5uk"]
+
+[resource]
+transparency = 1
+depth_draw_mode = 1
+albedo_texture = ExtResource("1_ulvxh")
+metallic = 1.0
+metallic_texture = ExtResource("3_ks2vu")
+roughness_texture = ExtResource("5_ne5uk")
+normal_enabled = true
+normal_texture = ExtResource("4_h2l1g")
+refraction_scale = -0.05
+detail_enabled = true
+detail_mask = ExtResource("3_oh7g1")
+detail_blend_mode = 3
+detail_albedo = ExtResource("2_oh7g1")

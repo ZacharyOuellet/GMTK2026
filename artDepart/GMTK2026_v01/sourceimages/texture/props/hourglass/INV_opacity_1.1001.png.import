@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bajqvun46vv1i"
-path.s3tc="res://.godot/imported/openPBR_shader1_BaseColor.1001.png-8f706471c76dc04cc943774200e2b102.s3tc.ctex"
+uid="uid://c077irjq6l4mh"
+path.s3tc="res://.godot/imported/INV_opacity_1.1001.png-70050ae71d733c0023fc8fb2e7c8d507.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://artDepart/GMTK2026_v01/sourceimages/texture/props/hourglass/openPBR_shader1_BaseColor.1001.png"
-dest_files=["res://.godot/imported/openPBR_shader1_BaseColor.1001.png-8f706471c76dc04cc943774200e2b102.s3tc.ctex"]
+source_file="res://artDepart/GMTK2026_v01/sourceimages/texture/props/hourglass/INV_opacity_1.1001.png"
+dest_files=["res://.godot/imported/INV_opacity_1.1001.png-70050ae71d733c0023fc8fb2e7c8d507.s3tc.ctex"]
 
 [params]
 
