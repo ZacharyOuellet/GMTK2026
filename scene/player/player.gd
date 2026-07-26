@@ -78,14 +78,17 @@ func player_movement() -> void:
 func _generate_dash_afterimage(velocity: Vector3) -> void:
 	var current_position = global_transform.origin
 	var offset = velocity.normalized()
-	for i in range(1, 5):
+	for i in range(1, 12):
 		if i % 2 == 0:
 			continue
 
 		var dash_af = dash_after_image_scene.duplicate()
-		dash_af.global_transform.origin = current_position + Vector3(offset.x * i, 1, offset.z * i * speed_ratio_z_axis)
+	
 		afterimage_container.add_child(dash_af)
-		get_tree().create_timer(.07 * i).timeout.connect(dash_af.queue_free.bind())
+		dash_af.global_transform.origin = current_position + offset * i * 0.5
+
+		get_tree().create_timer(0.02 * i).timeout.connect(dash_af.queue_free.bind())
+
 
 
 func player_started_charging() -> bool:
