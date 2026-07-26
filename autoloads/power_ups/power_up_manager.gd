@@ -79,3 +79,8 @@ func is_power_up_available(player_id: int, power_up_type: PowerUpType) -> bool:
 	# print("power_up_locks[%d] = %d" % [index, power_up_locks[index]])
 	# print(power_up_locks[index] == 0)
 	return power_up_locks[index] == 0
+
+
+func get_power_up_percentage(player_id: int, power_up_type: PowerUpType) -> float:
+	var index = (player_id - 1) * PowerUpType.size() + power_up_type
+	return power_up_trackers[index]/PowerUpThresholds[power_up_type]
