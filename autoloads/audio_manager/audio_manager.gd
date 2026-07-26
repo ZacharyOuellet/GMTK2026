@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var number_of_audio_players: int = 5
+@export var number_of_audio_players: int = 7
 @export_group("Audio streams")
 @export var hit_audio_stream: AudioStream
 @export var dash_audio_stream: AudioStream
