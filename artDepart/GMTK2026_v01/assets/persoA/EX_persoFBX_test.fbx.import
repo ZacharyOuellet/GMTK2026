@@ -1,0 +1,94 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://4fjuo316gjsh"
+path="res://.godot/imported/EX_persoFBX_test.fbx-376aad8019c2fd143ba8f99e3df63508.scn"
+
+[deps]
+
+source_file="res://artDepart/GMTK2026_v01/assets/persoA/EX_persoFBX_test.fbx"
+dest_files=["res://.godot/imported/EX_persoFBX_test.fbx-376aad8019c2fd143ba8f99e3df63508.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"MT_T_feets_1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://artDepart/GMTK2026_v01/assets/persoA/MT_T_feets_1.tres",
+"use_external/path": "uid://donjoy1m08o75"
+},
+"MT_T_hair_1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://artDepart/GMTK2026_v01/assets/persoA/MT_T_hair_1.tres",
+"use_external/path": "uid://7a8to2borki3"
+},
+"MT_T_hands_1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://artDepart/GMTK2026_v01/assets/persoA/MT_T_hands_1.tres",
+"use_external/path": "uid://dkovwcsb3aagf"
+},
+"MT_T_head_1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://artDepart/GMTK2026_v01/assets/persoA/MT_T_head_1.tres",
+"use_external/path": "uid://d3lnnyb8ux414"
+},
+"MT_T_jointMembers_1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://artDepart/GMTK2026_v01/assets/persoA/MT_T_jointsMembers_1.tres",
+"use_external/path": "uid://c4wi115e8507q"
+},
+"MT_T_pelvis_1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://artDepart/GMTK2026_v01/assets/persoA/MT_T_pelvis_1.tres",
+"use_external/path": "uid://cfb2phqj7ejwy"
+},
+"MT_T_pupille_1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://artDepart/GMTK2026_v01/assets/persoA/MT_T_pupille_1.tres",
+"use_external/path": "uid://nn3m881yt3l5"
+},
+"MT_T_torso_1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://artDepart/GMTK2026_v01/assets/persoA/MT_T_torso_1.tres",
+"use_external/path": "uid://blbfiq08a78ya"
+},
+"MT_T_whiteEyes_1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://artDepart/GMTK2026_v01/assets/persoA/MT_T_whiteEyes_1.tres",
+"use_external/path": "uid://cqihiej4gsvvn"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2
