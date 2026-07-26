@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c66432n45ufi"]
+
+[ext_resource type="Script" uid="uid://cfbcv0ud2lt4q" path="res://autoloads/audio_manager/audio_manager.gd" id="1_n7h83"]
+[ext_resource type="AudioStream" uid="uid://bm0svxgtv3snk" path="res://autoloads/audio_manager/audio/hit.mp3" id="2_bntsi"]
+[ext_resource type="AudioStream" uid="uid://d0sh8u3plpcf2" path="res://autoloads/audio_manager/audio/dash.mp3" id="3_eeu3u"]
+[ext_resource type="AudioStream" uid="uid://d3wjwcvffyw0k" path="res://autoloads/audio_manager/audio/bounce.mp3" id="4_3yauf"]
+[ext_resource type="AudioStream" uid="uid://mp1nsk8yeige" path="res://autoloads/audio_manager/audio/move.mp3" id="5_por5f"]
+
+[node name="AudioManager" type="Node3D" unique_id=915390739]
+script = ExtResource("1_n7h83")
+hit_audio_stream = ExtResource("2_bntsi")
+dash_audio_stream = ExtResource("3_eeu3u")
+bounce_audio_stream = ExtResource("4_3yauf")
+move_audio_stream = ExtResource("5_por5f")

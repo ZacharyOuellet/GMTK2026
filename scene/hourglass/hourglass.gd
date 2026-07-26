@@ -33,6 +33,7 @@ func _on_body_entered(body: Node) -> void:
 		position.y = 0
 		rotation = Vector3.ZERO
 		TimerGlobal.is_running = true
+		$GPUParticles3D.emitting = true
 
 func _on_hit_animation_finished() -> void:
 	print("hit animation finished")
