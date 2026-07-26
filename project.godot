@@ -21,6 +21,7 @@ TimerGlobal="*uid://c5k6sr11hx08o"
 PowerUpManager="*uid://cglqhhudfh0bt"
 GlobalJuiceMachine="*uid://dej6l1302xqst"
 LevelManager="*uid://ns4e04oggc22"
+AudioManager="*uid://c66432n45ufi"
 
 [display]
 
