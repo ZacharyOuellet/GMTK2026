@@ -16,6 +16,15 @@ bg_color = Color(0.20784314, 0.20784314, 0.20784314, 0.74509805)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0tf5"]
 bg_color = Color(0.1882353, 0.6745098, 0.34117648, 0.74509805)
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3bvl0"]
+height = 1.0410156
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wo4n"]
+albedo_color = Color(0.80784315, 0.25882354, 0.9764706, 1)
+roughness = 0.28
+
+[sub_resource type="SphereMesh" id="SphereMesh_bi6ng"]
+
 [node name="Player" type="CharacterBody3D" unique_id=308101449 node_paths=PackedStringArray("charge_bar")]
 axis_lock_linear_y = true
 script = ExtResource("1_v7pse")
@@ -55,3 +64,16 @@ step = 0.001
 show_percentage = false
 script = ExtResource("3_6smn3")
 charge_speed = 5.0
+
+[node name="ExclamationPoint" type="Node3D" parent="." unique_id=1769636405]
+transform = Transform3D(0.82, 0, 0, 0, 0.82, 0, 0, 0, 0.82, 0, 3.257818, 0)
+
+[node name="Capsule" type="MeshInstance3D" parent="ExclamationPoint" unique_id=39182989]
+transform = Transform3D(0.7, 0, 0, 0, 1.5, 0, 0, 0, 0.7, 0, 0.10118151, 0)
+mesh = SubResource("CapsuleMesh_3bvl0")
+surface_material_override/0 = SubResource("StandardMaterial3D_1wo4n")
+
+[node name="Spehre" type="MeshInstance3D" parent="ExclamationPoint" unique_id=2055770140]
+transform = Transform3D(0.435, 0, 0, 0, -1.9014454e-08, -0.435, 0, 0.435, -1.9014454e-08, 0, -1.0313311, 0)
+mesh = SubResource("SphereMesh_bi6ng")
+surface_material_override/0 = SubResource("StandardMaterial3D_1wo4n")

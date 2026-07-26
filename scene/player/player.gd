@@ -27,8 +27,6 @@ extends CharacterBody3D
 @export_group("Debug/placeholder settings")
 @export var player1_color : Color =  Color(1.0, 0.847, 0.004, 1.0)
 @export var player2_color : Color = Color(0.302, 0.0, 0.976, 1.0)
-@export var close_to_hit_color : Color = Color(0.302, 0.619, 0.0, 1.0)
-
 
 
 # Called when the node enters the scene tree for the first time.
@@ -41,11 +39,11 @@ func _physics_process(_delta: float) -> void:
 
 func charge_hourglass() -> void:
 	if position.distance_to(hourglass.position) > hourglass_distance:
-		set_player_color()
+		$ExclamationPoint.visible = false
 		charge_bar.stop_charging() # cancel charge if it is too far
 		return
 	
-	set_debug_color()
+	$ExclamationPoint.visible = true
 
 	if !charge_bar.is_charging and player_currently_charging():
 		charge_bar.start_charging()
@@ -87,11 +85,6 @@ func set_player_color() -> void:
 		material.albedo_color = player2_color
 		
 		
-func set_debug_color() -> void:
-		var material = StandardMaterial3D.new()
-		$MeshInstance3D.material_override = material
-		material.albedo_color = close_to_hit_color
-
 
 func player_started_charging() -> bool:
 	if player_id == 1:
@@ -99,6 +92,7 @@ func player_started_charging() -> bool:
 	if player_id ==2 :
 		return Input.is_action_just_pressed("hit_2")
 	return false
+	
 
 func player_currently_charging() -> bool:
 	if player_id == 1:
@@ -106,6 +100,7 @@ func player_currently_charging() -> bool:
 	if player_id ==2 :
 		return Input.is_action_pressed("hit_2")
 	return false
+	
 
 func player_stopped_charging() -> bool:
 	if player_id == 1:
@@ -113,6 +108,7 @@ func player_stopped_charging() -> bool:
 	if player_id == 2:
 		return Input.is_action_just_released("hit_2")
 	return false
+	
 
 func _on_hit_request(power: float):
 	var horizontal_direction : Vector3 = (hourglass.position - position).normalized()
