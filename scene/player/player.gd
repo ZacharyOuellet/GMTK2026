@@ -30,7 +30,7 @@ signal hit_hourglass(playerId: int)
 @export_group("Internal nodes")
 @export var charge_bar: ChargeBar
 
-@onready var model : Node3D = $Model
+@onready var model : Node3D = $animated_model
 
 func _ready() -> void:
 	if (player_material_override): model.material = player_material_override
@@ -78,6 +78,9 @@ func player_movement() -> void:
 	
 	if(velocity.length() > 0):
 		model.look_at(position - velocity)
+		model.run()
+	if(velocity.length()< 0.1):
+		model.stop_running()
 	move_and_slide()
 
 func _generate_dash_afterimage(velocity: Vector3) -> void:
@@ -121,6 +124,7 @@ func player_stopped_charging() -> bool:
 	
 
 func _on_hit_request(power: float):
+	model.hit()
 	var pos_diff: Vector3 = hourglass.position - position
 	pos_diff.y=0
 	var horizontal_direction = pos_diff.normalized()
