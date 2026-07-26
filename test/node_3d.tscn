@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://4fjuo316gjsh" path="res://artDepart/GMTK2026_v01/assets/persoA/EX_persoFBX_test.fbx" id="1_nd1li"]
 [ext_resource type="PackedScene" uid="uid://c1cl7t6pj7m7n" path="res://artDepart/GMTK2026_v01/assets/hourglass/PR_hourglass.fbx" id="2_irbvn"]
+[ext_resource type="Material" uid="uid://c3f17bkinp8eo" path="res://artDepart/GMTK2026_v01/assets/hourglass/MT_T_glass_1.tres" id="3_e2mbt"]
 
 [node name="Node3D" type="Node3D" unique_id=219820476]
 
@@ -11,5 +12,8 @@ visible = false
 
 [node name="PR_hourglass" parent="." unique_id=1361610371 instance=ExtResource("2_irbvn")]
 transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0)
+
+[node name="HR_T_glass_1" parent="PR_hourglass/HR_T_houglassGr_1/HR_T_glassGr_1" parent_id_path=PackedInt32Array(1361610371, 1565610177) index="0" unique_id=890850038]
+surface_material_override/0 = ExtResource("3_e2mbt")
 
 [editable path="PR_hourglass"]
