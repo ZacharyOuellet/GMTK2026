@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://6ilyu7p1rerw"
-path="res://.godot/imported/CH_persoA.fbx-3500318bb7d74200566b7d48fe9db948.scn"
+uid="uid://d0u1w0niad04v"
+path="res://.godot/imported/AN_runCyclePersoA.fbx-0208023695f8efa8463c7e9716af9dff.scn"
 
 [deps]
 
-source_file="res://artDepart/GMTK2026_v01/assets/persoA/CH_persoA.fbx"
-dest_files=["res://.godot/imported/CH_persoA.fbx-3500318bb7d74200566b7d48fe9db948.scn"]
+source_file="res://artDepart/GMTK2026_v01/assets/persoA/AN_runCyclePersoA.fbx"
+dest_files=["res://.godot/imported/AN_runCyclePersoA.fbx-0208023695f8efa8463c7e9716af9dff.scn"]
 
 [params]
 

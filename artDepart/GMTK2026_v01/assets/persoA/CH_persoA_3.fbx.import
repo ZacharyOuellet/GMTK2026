@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://4fjuo316gjsh"
-path="res://.godot/imported/EX_persoFBX_test.fbx-376aad8019c2fd143ba8f99e3df63508.scn"
+uid="uid://ckb3bjhd7xfyq"
+path="res://.godot/imported/CH_persoA_3.fbx-461019653cfa6763ef42bd6a9f901e8f.scn"
 
 [deps]
 
-source_file="res://artDepart/GMTK2026_v01/assets/persoA/EX_persoFBX_test.fbx"
-dest_files=["res://.godot/imported/EX_persoFBX_test.fbx-376aad8019c2fd143ba8f99e3df63508.scn"]
+source_file="res://artDepart/GMTK2026_v01/assets/persoA/CH_persoA_3.fbx"
+dest_files=["res://.godot/imported/CH_persoA_3.fbx-461019653cfa6763ef42bd6a9f901e8f.scn"]
 
 [params]
 
@@ -41,47 +41,47 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"MT_T_feets_1": {
+"AR_persoA:MT_T_feets_1": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://artDepart/GMTK2026_v01/assets/persoA/MT_T_feets_1.tres",
 "use_external/path": "uid://donjoy1m08o75"
 },
-"MT_T_hair_1": {
+"AR_persoA:MT_T_hair_1": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://artDepart/GMTK2026_v01/assets/persoA/MT_T_hair_1.tres",
 "use_external/path": "uid://7a8to2borki3"
 },
-"MT_T_hands_1": {
+"AR_persoA:MT_T_hands_1": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://artDepart/GMTK2026_v01/assets/persoA/MT_T_hands_1.tres",
 "use_external/path": "uid://dkovwcsb3aagf"
 },
-"MT_T_head_1": {
+"AR_persoA:MT_T_head_1": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://artDepart/GMTK2026_v01/assets/persoA/MT_T_head_1.tres",
 "use_external/path": "uid://d3lnnyb8ux414"
 },
-"MT_T_jointMembers_1": {
+"AR_persoA:MT_T_jointMembers_1": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://artDepart/GMTK2026_v01/assets/persoA/MT_T_jointsMembers_1.tres",
 "use_external/path": "uid://c4wi115e8507q"
 },
-"MT_T_pelvis_1": {
+"AR_persoA:MT_T_pelvis_1": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://artDepart/GMTK2026_v01/assets/persoA/MT_T_pelvis_1.tres",
 "use_external/path": "uid://cfb2phqj7ejwy"
 },
-"MT_T_pupille_1": {
+"AR_persoA:MT_T_pupille_1": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://artDepart/GMTK2026_v01/assets/persoA/MT_T_pupille_1.tres",
 "use_external/path": "uid://nn3m881yt3l5"
 },
-"MT_T_torso_1": {
+"AR_persoA:MT_T_torso_1": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://artDepart/GMTK2026_v01/assets/persoA/MT_T_torso_1.tres",
 "use_external/path": "uid://blbfiq08a78ya"
 },
-"MT_T_whiteEyes_1": {
+"AR_persoA:MT_T_whiteEyes_1": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://artDepart/GMTK2026_v01/assets/persoA/MT_T_whiteEyes_1.tres",
 "use_external/path": "uid://cqihiej4gsvvn"
