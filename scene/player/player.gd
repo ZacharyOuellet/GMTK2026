@@ -1,43 +1,44 @@
 extends CharacterBody3D
 
-signal hit_hourglass(playerId:int)
+signal hit_hourglass(playerId: int)
 
-@export var player_id : int = 1
+@export var player_id: int = 1
+@export var player_material_override: Material
 
 @export_group("Controls")
-@export var speed : int = 10
-@export var speed_ratio_z_axis : float = 2.5
-@export var dash_speed_multiplier : float = 25
+@export var speed: int = 10
+@export var speed_ratio_z_axis: float = 2.5
 
+@export_group("dash")
+@export var dash_speed_multiplier: float = 25
+@export var afterimage_container: Node3D
+@export var dash_after_image_scene: Node3D
 
 @export_group("Hit settings")
-@export var hourglass_distance : float = 2
-@export var torque_vector : Vector3 = Vector3(0, 0, 1)
+@export var hourglass_distance: float = 2
+@export var torque_vector: Vector3 = Vector3(0, 0, 1)
 @export_group("Hit settings/XZ force")
-@export var min_xz_force : float = 0.5
-@export var max_xz_force : float = 3
+@export var min_xz_force: float = 0.5
+@export var max_xz_force: float = 3
 @export_group("Hit settings/Y force")
-@export var min_y_force : float = 1
-@export var max_y_force : float = 3
+@export var min_y_force: float = 1
+@export var max_y_force: float = 3
 
 @export_group("External nodes")
-@export var hourglass : RigidBody3D
+@export var hourglass: RigidBody3D
 
 @export_group("Internal nodes")
-@export var charge_bar : ChargeBar
+@export var charge_bar: ChargeBar
 
-@export_group("Debug/placeholder settings")
-@export var player1_color : Color =  Color(1.0, 0.847, 0.004, 1.0)
-@export var player2_color : Color = Color(0.302, 0.0, 0.976, 1.0)
+@onready var model : Node3D = $Model
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	set_player_color()
+	if (player_material_override): model.material = player_material_override
 
 func _physics_process(_delta: float) -> void:
 	player_movement()
 	charge_hourglass()
+
 
 func charge_hourglass() -> void:
 	if position.distance_to(hourglass.position) > hourglass_distance:
@@ -49,16 +50,16 @@ func charge_hourglass() -> void:
 
 	if !charge_bar.is_charging and player_currently_charging():
 		charge_bar.start_charging()
-	if player_started_charging() : 
+	if player_started_charging():
 		charge_bar.start_charging()
 
 	if player_stopped_charging():
-		var power :float = charge_bar.stop_charging()
+		var power: float = charge_bar.stop_charging()
 		_on_hit_request(power)
 
 
 func player_movement() -> void:
-	var direction : Vector2 = Vector2.ZERO 
+	var direction: Vector2 = Vector2.ZERO
 	var dash = false;
 	if player_id == 1:
 		direction = Input.get_vector("left_1", "right_1", "up_1", "down_1")
@@ -67,31 +68,37 @@ func player_movement() -> void:
 		direction = Input.get_vector("left_2", "right_2", "up_2", "down_2")
 		dash = (Input.is_action_just_pressed("dash_2") or Input.is_action_just_pressed("dash_2")) and PowerUpManager.is_power_up_available(player_id, PowerUpManager.PowerUpType.DASH)
 
-	if dash:
-		PowerUpManager.reset_power_up(player_id, PowerUpManager.PowerUpType.DASH)
 
 	velocity.x = direction.x * speed if !dash else direction.x * speed * dash_speed_multiplier
 	velocity.z = direction.y * speed * speed_ratio_z_axis if !dash else direction.y * speed * speed_ratio_z_axis * dash_speed_multiplier
+	if dash:
+		PowerUpManager.reset_power_up(player_id, PowerUpManager.PowerUpType.DASH)
+		_generate_dash_afterimage(velocity)
+	
+	if(velocity.length() > 0):
+		model.look_at(position - velocity)
 	move_and_slide()
 
+func _generate_dash_afterimage(velocity: Vector3) -> void:
+	var current_position = global_transform.origin
+	var offset = velocity.normalized()
+	for i in range(1, 12):
+		if i % 2 == 0:
+			continue
 
-func set_player_color() -> void:
-	if player_id == 1:
-		var material = StandardMaterial3D.new()
-		$MeshInstance3D.material_override = material
-		material.albedo_color = player1_color
+		var dash_af = dash_after_image_scene.duplicate()
 	
-	if player_id == 2:
-		var material = StandardMaterial3D.new()
-		$MeshInstance3D.material_override = material
-		material.albedo_color = player2_color
-		
-		
+		afterimage_container.add_child(dash_af)
+		dash_af.global_transform.origin = current_position + offset * i * 0.5
+
+		get_tree().create_timer(0.02 * i).timeout.connect(dash_af.queue_free.bind())
+
+
 
 func player_started_charging() -> bool:
 	if player_id == 1:
 		return Input.is_action_just_pressed("hit_1")
-	if player_id ==2 :
+	if player_id == 2:
 		return Input.is_action_just_pressed("hit_2")
 	return false
 	
@@ -99,7 +106,7 @@ func player_started_charging() -> bool:
 func player_currently_charging() -> bool:
 	if player_id == 1:
 		return Input.is_action_pressed("hit_1")
-	if player_id ==2 :
+	if player_id == 2:
 		return Input.is_action_pressed("hit_2")
 	return false
 	
@@ -113,11 +120,12 @@ func player_stopped_charging() -> bool:
 	
 
 func _on_hit_request(power: float):
-	var horizontal_direction : Vector3 = (hourglass.position - position).normalized()
-	var hit_vector : Vector3 = horizontal_direction * lerp(min_xz_force, max_xz_force, power)
-	hit_vector.y =  lerp(min_y_force, max_y_force, power)
+	var pos_diff: Vector3 = hourglass.position - position
+	pos_diff.y=0
+	var horizontal_direction = pos_diff.normalized()
+	var hit_vector: Vector3 = horizontal_direction * lerp(min_xz_force, max_xz_force, power)
+	hit_vector.y = lerp(min_y_force, max_y_force, power)
 	hit_vector.z *= speed_ratio_z_axis
 	hourglass.hit(hit_vector, torque_vector)
 	GlobalJuiceMachine.request_shake(power, 0.2)
 	hit_hourglass.emit(player_id)
-

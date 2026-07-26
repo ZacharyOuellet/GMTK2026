@@ -22,6 +22,7 @@ func _ready() -> void:
 func initialize_game():
 	TimerGlobal.initial_max_time = initial_global_time_pool
 	TimerGlobal.reset()
+	PowerUpManager.reset_power_ups()
 	TimerGlobal.is_running = false
 	TimerGlobal.time_out.connect(_on_timeout)
 

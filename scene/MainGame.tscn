@@ -5,64 +5,70 @@
 [ext_resource type="Script" uid="uid://cvfere1ij00c" path="res://scene/camera.gd" id="2_6fdoo"]
 [ext_resource type="PackedScene" uid="uid://di73a14l3rof0" path="res://scene/hourglass/hourglass_interactive.tscn" id="3_ud66n"]
 [ext_resource type="PackedScene" uid="uid://jblwxwn28o14" path="res://scene/ui/main_ui.tscn" id="4_6fdoo"]
+[ext_resource type="Material" uid="uid://dgsdcqqbpqehi" path="res://materials/cardboard/cardboard2.tres" id="5_1crwq"]
 [ext_resource type="PackedScene" uid="uid://dhbm6mbw0wt4" path="res://scene/ui/power_interface.tscn" id="5_2gnev"]
+[ext_resource type="Material" uid="uid://dr60ugc4lpu8r" path="res://materials/cardboard/cardboard1.tres" id="5_gjcpk"]
+[ext_resource type="Material" uid="uid://bunvt1vnqkbb1" path="res://materials/player/red_head.tres" id="5_ufh7j"]
+[ext_resource type="Material" uid="uid://tyytbdrmacvt" path="res://materials/player/blue_head.tres" id="6_dp8j0"]
+[ext_resource type="Material" uid="uid://b40fxi20p1msg" path="res://materials/cardboard/cardboard1_side.tres" id="6_vh5o8"]
+
+[sub_resource type="Environment" id="Environment_vh5o8"]
+tonemap_white = 1.46
+glow_enabled = true
+glow_intensity = 6.44
+glow_bloom = 0.06
+fog_depth_begin = 198.6
+fog_depth_end = 451.6
+adjustment_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_bpmhk"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_yilnh"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2m57j"]
-albedo_color = Color(0.26184538, 0.4471408, 0.80536366, 1)
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_0dwx2"]
-material = SubResource("StandardMaterial3D_2m57j")
+material = ExtResource("5_1crwq")
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wetts"]
 plane = Plane(1, 0, 0, 0)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2m57j"]
+material = ExtResource("6_vh5o8")
 orientation = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owwni"]
-shading_mode = 0
-albedo_color = Color(0.49354547, 0.49354553, 0.49354553, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0dwx2"]
 plane = Plane(1, 0, 0, 0)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_00014"]
+material = ExtResource("6_vh5o8")
 orientation = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ud66n"]
-albedo_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2m57j"]
 plane = Plane(0, 0, 1, 0)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_owwni"]
+material = ExtResource("5_gjcpk")
 orientation = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yilnh"]
-albedo_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_6fdoo"]
 plane = Plane(0, 0, 1, 0)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2gnev"]
+material = ExtResource("5_gjcpk")
 orientation = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kj2ki"]
-albedo_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
 
 [node name="MainGame" type="Node3D" unique_id=1631344264 node_paths=PackedStringArray("hourglass")]
 script = ExtResource("1_2gnev")
-y_force = 10.0
+y_force = 20.0
+torque = Vector3(0, 0, 15)
 hourglass = NodePath("Hourglass")
 
 [node name="MainUi" parent="." unique_id=281116502 instance=ExtResource("4_6fdoo")]
+visible = false
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2091930083]
 transform = Transform3D(1, 0, 0, 0, 0.9707164, 0.24022803, 0, -0.24022803, 0.9707164, 0, 30, 110)
+environment = SubResource("Environment_vh5o8")
+current = true
 fov = 9.0
 script = ExtResource("2_6fdoo")
 
@@ -71,14 +77,17 @@ transform = Transform3D(0.9612617, 0, -0.27563736, 0, 1, 0, 0.27563736, 0, 0.961
 visible = false
 mesh = SubResource("BoxMesh_bpmhk")
 
-[node name="Player1" parent="." unique_id=308101449 node_paths=PackedStringArray("hourglass") instance=ExtResource("1_2m57j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1416526, 0, 4.2101316)
+[node name="Player1" parent="." unique_id=308101449 node_paths=PackedStringArray("afterimage_container", "hourglass") instance=ExtResource("1_2m57j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.949261, -1.9073486e-06, -31.526272)
+player_material_override = ExtResource("5_ufh7j")
+afterimage_container = NodePath("../AfterImageContainer")
 hourglass = NodePath("../Hourglass")
-player1_color = Color(0.88388604, 0.28487805, 0.1772973, 1)
 
-[node name="Player2" parent="." unique_id=1753972874 node_paths=PackedStringArray("hourglass") instance=ExtResource("1_2m57j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0571804, 0, 0)
+[node name="Player2" parent="." unique_id=1753972874 node_paths=PackedStringArray("afterimage_container", "hourglass") instance=ExtResource("1_2m57j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.188061, 0, 18.233109)
 player_id = 2
+player_material_override = ExtResource("6_dp8j0")
+afterimage_container = NodePath("../AfterImageContainer")
 hourglass = NodePath("../Hourglass")
 
 [node name="Environment" type="Node3D" parent="." unique_id=127246524]
@@ -92,7 +101,7 @@ shape = SubResource("WorldBoundaryShape3D_yilnh")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Ground" unique_id=1528138847]
-transform = Transform3D(14.65, 0, 0, 0, 37.2, 0, 0, 0, 38.455, 0, 0, 0)
+transform = Transform3D(14.65, 0, 0, 0, 37.2, 0, 0, 0, 38.454998, 0, 0, 0)
 mesh = SubResource("PlaneMesh_0dwx2")
 
 [node name="Borders" type="Node3D" parent="Environment" unique_id=247722339]
@@ -108,8 +117,9 @@ debug_color = Color(0, 0.6, 0.69803923, 0.98039216)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Borders/LeftWall" unique_id=81482381]
 transform = Transform3D(36.99, 0, 0, 0, 36.99, 0, 0, 0, 36.99, 0, 0, 0)
+layers = 524288
+cast_shadow = 0
 mesh = SubResource("PlaneMesh_2m57j")
-surface_material_override/0 = SubResource("StandardMaterial3D_owwni")
 
 [node name="RightWall" type="StaticBody3D" parent="Environment/Borders" unique_id=1433014122]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 13.3, 0, 0)
@@ -122,8 +132,8 @@ debug_color = Color(0, 0.6, 0.69803923, 0.98039216)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Borders/RightWall" unique_id=323909037]
 transform = Transform3D(36.99, 0, 0, 0, 36.99, 0, 0, 0, 36.99, 0, 0, 0)
+cast_shadow = 0
 mesh = SubResource("PlaneMesh_00014")
-surface_material_override/0 = SubResource("StandardMaterial3D_ud66n")
 
 [node name="Backwall" type="StaticBody3D" parent="Environment/Borders" unique_id=1212982525]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -37)
@@ -137,8 +147,8 @@ metadata/_edit_lock_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Borders/Backwall" unique_id=982994788]
 transform = Transform3D(36.99, 0, 0, 0, 36.99, 0, 0, 0, 36.99, 0, 0, 0)
+cast_shadow = 0
 mesh = SubResource("PlaneMesh_owwni")
-surface_material_override/0 = SubResource("StandardMaterial3D_yilnh")
 metadata/_edit_lock_ = true
 
 [node name="FrontWall" type="StaticBody3D" parent="Environment/Borders" unique_id=695902831]
@@ -152,20 +162,34 @@ metadata/_edit_lock_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Borders/FrontWall" unique_id=163221311]
 transform = Transform3D(36.99, 0, 0, 0, 36.99, 0, 0, 0, 36.99, 0, 0, 0)
+cast_shadow = 0
 mesh = SubResource("PlaneMesh_2gnev")
-surface_material_override/0 = SubResource("StandardMaterial3D_kj2ki")
 metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1369715394]
 transform = Transform3D(0.8405665, 0.4038304, -0.36106607, 0, 0.6665324, 0.745476, 0.5417081, -0.6266222, 0.56026495, -10.29, 33.862, 33.691)
+light_color = Color(1, 0.920079, 0.7565041, 1)
+light_angular_distance = 10.22
 shadow_enabled = true
-directional_shadow_max_distance = 150.0
+directional_shadow_mode = 1
+directional_shadow_max_distance = 169.0
+directional_shadow_pancake_size = 1.2
+sky_mode = 1
+
+[node name="secoondary_light" type="DirectionalLight3D" parent="Environment" unique_id=1365037183]
+transform = Transform3D(0.9570533, 3.6612942e-08, 0.28991196, -0.1671338, 0.81709826, 0.5517398, -0.2368865, -0.57649845, 0.7820066, -7.941414, 20.075647, 30.185905)
+layers = 524288
+light_cull_mask = 4294443008
+directional_shadow_mode = 0
 
 [node name="Hourglass" parent="." unique_id=498183243 instance=ExtResource("3_ud66n")]
+gravity_scale = 2.0
 
 [node name="PowerInterface" parent="." unique_id=2077944849 instance=ExtResource("5_2gnev")]
 offset_right = -1152.0
 offset_bottom = -648.0
+
+[node name="AfterImageContainer" type="Node3D" parent="." unique_id=1073940714]
 
 [connection signal="hit_hourglass" from="Player1" to="." method="_on_hourglass_hit"]
 [connection signal="hit_hourglass" from="Player2" to="." method="_on_hourglass_hit"]

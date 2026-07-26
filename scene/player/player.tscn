@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://cr3l7x8g53tq4"]
 
 [ext_resource type="Script" uid="uid://cylo88e7j58gv" path="res://scene/player/player.gd" id="1_v7pse"]
+[ext_resource type="PackedScene" uid="uid://31e8doipc6t" path="res://art_integre/ex_perso_fbx_test.scn" id="2_6smn3"]
 [ext_resource type="Script" uid="uid://da5gkg2vuys62" path="res://scene/player/charge_bar.gd" id="3_6smn3"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pa3om"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6smn3"]
+albedo_color = Color(1, 0, 0, 1)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_pa3om"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pa3om"]
+radius = 1.1655273
+height = 6.511841
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_v5s5d"]
 viewport_path = NodePath("Sprite3D/SubViewport")
@@ -25,26 +29,28 @@ roughness = 0.28
 
 [sub_resource type="SphereMesh" id="SphereMesh_bi6ng"]
 
-[node name="Player" type="CharacterBody3D" unique_id=308101449 node_paths=PackedStringArray("charge_bar")]
+[node name="Player" type="CharacterBody3D" unique_id=308101449 node_paths=PackedStringArray("dash_after_image_scene", "charge_bar")]
 axis_lock_linear_y = true
 script = ExtResource("1_v7pse")
-torque_vector = Vector3(0, 0, 4)
-min_xz_force = 3.0
-max_xz_force = 15.0
-min_y_force = 5.0
-max_y_force = 15.0
+player_material_override = SubResource("StandardMaterial3D_6smn3")
+dash_after_image_scene = NodePath("Model")
+hourglass_distance = 5.0
+torque_vector = Vector3(0, 0, 15)
+min_xz_force = 5.0
+max_xz_force = 10.0
+min_y_force = 15.0
+max_y_force = 25.0
 charge_bar = NodePath("Sprite3D/SubViewport/HitBar")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=602623730]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.180725, 0)
 shape = SubResource("CapsuleShape3D_pa3om")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=563245823]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_pa3om")
+[node name="Model" parent="." unique_id=748610749 instance=ExtResource("2_6smn3")]
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=439869142]
-transform = Transform3D(0.35625315, 0, 0, 0, 0.745, 0, 0, 0, 0.745, 0, 0.3, 0.7763336)
+transform = Transform3D(0.6126934, 0, 0, 0, 0.9072064, 0, 0, 0, 0.745, 0, 0.3, 0.7763336)
 no_depth_test = true
 texture = SubResource("ViewportTexture_v5s5d")
 
@@ -63,10 +69,10 @@ max_value = 1.0
 step = 0.001
 show_percentage = false
 script = ExtResource("3_6smn3")
-charge_speed = 5.0
+charge_speed = 10.0
 
 [node name="ExclamationPoint" type="Node3D" parent="." unique_id=1769636405]
-transform = Transform3D(0.82, 0, 0, 0, 0.82, 0, 0, 0, 0.82, 0, 3.257818, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.9256773, 0)
 
 [node name="Capsule" type="MeshInstance3D" parent="ExclamationPoint" unique_id=39182989]
 transform = Transform3D(0.7, 0, 0, 0, 1.5, 0, 0, 0, 0.7, 0, 0.10118151, 0)

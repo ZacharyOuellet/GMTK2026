@@ -2,25 +2,134 @@
 
 [ext_resource type="Script" uid="uid://pk8xhshw0lwq" path="res://scene/hourglass/hourglass.gd" id="1_davmd"]
 [ext_resource type="PackedScene" uid="uid://b2astgnf5ehfs" path="res://scene/hourglass_visuals/hourglass_visuals.tscn" id="2_y3yqi"]
+[ext_resource type="Texture2D" uid="uid://6ponvxdw688u" path="res://artDepart/star/star_01.png" id="3_b4jeg"]
+[ext_resource type="Texture2D" uid="uid://dtukiex8dye3l" path="res://artDepart/star/star_02.png" id="4_8d066"]
+[ext_resource type="Texture2D" uid="uid://dh6csab04q2jl" path="res://artDepart/star/star_03.png" id="5_65i1y"]
+[ext_resource type="Texture2D" uid="uid://tyrurfuwslqy" path="res://artDepart/star/star_04.png" id="6_8dumy"]
+[ext_resource type="Texture2D" uid="uid://c2vi23cqrqdhs" path="res://artDepart/star/star_05.png" id="7_f402g"]
+[ext_resource type="Texture2D" uid="uid://dw7oi6fh1wi0p" path="res://artDepart/star/star_06.png" id="8_mm5kj"]
+[ext_resource type="Texture2D" uid="uid://cntype2xb535k" path="res://artDepart/star/star_07.png" id="9_6os27"]
+[ext_resource type="Texture2D" uid="uid://bqvjt7dp2eu38" path="res://artDepart/star/star_08.png" id="10_p3mgo"]
+[ext_resource type="Texture2D" uid="uid://ewog0ovok0rw" path="res://artDepart/star/star_09.png" id="11_oi2d7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v7pse"]
 friction = 0.0
-bounce = 0.6
+bounce = 0.8
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mwwfv"]
 
-[node name="RigidBody3D" type="RigidBody3D" unique_id=498183243]
+[sub_resource type="Curve" id="Curve_o7ywm"]
+_data = [Vector2(0, 1), 0.0, -0.14260997, 0, 1, Vector2(0.24517907, 0.965035), 0.0, 0.0, 0, 0, Vector2(0.90082645, 0.35664338), -3.0903025, -3.0903025, 0, 0, Vector2(1, 0), -3.5961545, 0.0, 1, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_wwbmv"]
+curve = SubResource("Curve_o7ywm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1wo4n"]
+emission_shape_scale = Vector3(0.41, 0.085, 0.41)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+spread = 0.0
+radial_velocity_min = 0.99997765
+radial_velocity_max = 2.9999776
+gravity = Vector3(0, -2, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+damping_min = 0.1
+damping_max = 0.1
+scale_min = 0.01
+scale_max = 0.099999994
+scale_curve = SubResource("CurveTexture_wwbmv")
+
+[sub_resource type="Gradient" id="Gradient_8erjt"]
+offsets = PackedFloat32Array(0, 0.43362832, 1)
+colors = PackedColorArray(0.6901961, 0.6901961, 0.6901961, 1, 0.69, 0.69, 0.69, 1, 0.23, 0.22900334, 0.22770001, 0.39607844)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cv5vk"]
+gradient = SubResource("Gradient_8erjt")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8162393, 0.26495728)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7scu4"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_cv5vk")
+
+[sub_resource type="QuadMesh" id="QuadMesh_bi6ng"]
+material = SubResource("StandardMaterial3D_7scu4")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0gvcx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_b4jeg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8d066")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_65i1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8dumy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_f402g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mm5kj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6os27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_p3mgo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_oi2d7")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 45.0
+}]
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=498183243 node_paths=PackedStringArray("on_hit_sprite_player")]
 physics_material_override = SubResource("PhysicsMaterial_v7pse")
+gravity_scale = 3.392
 freeze = true
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_davmd")
+on_hit_sprite_player = NodePath("AnimatedSprite3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2101846453]
-transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0.5736325, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.7915422, 0)
 shape = SubResource("SphereShape3D_mwwfv")
 
 [node name="Hourglass" parent="." unique_id=785185120 instance=ExtResource("2_y3yqi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.573, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.7909098, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=516714500]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.072473526, 0)
+emitting = false
+amount = 200
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_1wo4n")
+draw_pass_1 = SubResource("QuadMesh_bi6ng")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=412227877]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.6016145, 0)
+sprite_frames = SubResource("SpriteFrames_0gvcx")
+frame = 7
+frame_progress = 0.16356993
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
