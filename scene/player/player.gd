@@ -75,7 +75,8 @@ func player_movement() -> void:
 		PowerUpManager.reset_power_up(player_id, PowerUpManager.PowerUpType.DASH)
 		_generate_dash_afterimage(velocity)
 	
-	model.look_at(position - velocity)
+	if(velocity.length() > 0):
+		model.look_at(position - velocity)
 	move_and_slide()
 
 func _generate_dash_afterimage(velocity: Vector3) -> void:
