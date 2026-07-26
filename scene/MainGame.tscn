@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cvfere1ij00c" path="res://scene/camera.gd" id="2_6fdoo"]
 [ext_resource type="PackedScene" uid="uid://di73a14l3rof0" path="res://scene/hourglass/hourglass_interactive.tscn" id="3_ud66n"]
 [ext_resource type="PackedScene" uid="uid://jblwxwn28o14" path="res://scene/ui/main_ui.tscn" id="4_6fdoo"]
+[ext_resource type="PackedScene" uid="uid://dhbm6mbw0wt4" path="res://scene/ui/power_interface.tscn" id="5_2gnev"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bpmhk"]
 
@@ -161,6 +162,10 @@ shadow_enabled = true
 directional_shadow_max_distance = 150.0
 
 [node name="Hourglass" parent="." unique_id=498183243 instance=ExtResource("3_ud66n")]
+
+[node name="PowerInterface" parent="." unique_id=2077944849 instance=ExtResource("5_2gnev")]
+offset_right = -1152.0
+offset_bottom = -648.0
 
 [connection signal="hit_hourglass" from="Player1" to="." method="_on_hourglass_hit"]
 [connection signal="hit_hourglass" from="Player2" to="." method="_on_hourglass_hit"]
