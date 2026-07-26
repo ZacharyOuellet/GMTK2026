@@ -37,7 +37,8 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	player_movement()
-	charge_hourglass()
+	if(hourglass):
+		charge_hourglass()
 
 
 func charge_hourglass() -> void:

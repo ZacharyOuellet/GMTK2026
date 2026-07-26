@@ -1,15 +1,31 @@
 [gd_scene format=3 uid="uid://c3nsulyxg0xee"]
 
 [ext_resource type="Script" uid="uid://to8irc5gubru" path="res://title.gd" id="1_kpexm"]
-[ext_resource type="Texture2D" uid="uid://c2q3lsvd5phed" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoA/EX_persoAtexture_v01_MT_T_whiteEyes_1_Roughness.1001.png" id="1_y7k74"]
+[ext_resource type="Texture2D" uid="uid://cqwcokqts84fi" path="res://materials/cardboard/paper_0012_color_1k.jpg" id="2_kpexm"]
 [ext_resource type="PackedScene" uid="uid://b2astgnf5ehfs" path="res://scene/hourglass_visuals/hourglass_visuals.tscn" id="2_oyqm6"]
+[ext_resource type="FontFile" uid="uid://r4fnlknwxgm2" path="res://Fonts/Chalk Dash.ttf" id="3_mom7w"]
+[ext_resource type="FontFile" uid="uid://bwoddkpf4drp0" path="res://Fonts/Chalk.otf" id="4_7lgly"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3xoar"]
+font = ExtResource("3_mom7w")
+font_size = 100
+shadow_size = 13
+shadow_color = Color(0, 0, 0, 0.16862746)
+shadow_offset = Vector2(6.14, 6.115)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyqm6"]
-bg_color = Color(0.3372549, 0.69411767, 0.32941177, 1)
+bg_color = Color(0.17434, 0.69, 0.1656, 1)
+border_width_left = 10
+border_width_top = 10
+border_color = Color(0.553, 0.79, 0.4345, 1)
+border_blend = true
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.34509805)
+shadow_size = 9
+shadow_offset = Vector2(9, 9)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xoar"]
 bg_color = Color(0.13257253, 0.29556823, 0.12741685, 1)
@@ -24,6 +40,10 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_mom7w"]
+font = ExtResource("4_7lgly")
+font_size = 40
 
 [sub_resource type="Environment" id="Environment_oyqm6"]
 
@@ -41,14 +61,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -921.0
-offset_top = -1074.0
-offset_right = 40.0
-offset_bottom = 240.0
+offset_top = -1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_y7k74")
+texture = ExtResource("2_kpexm")
 expand_mode = 1
+stretch_mode = 6
 
 [node name="Label" type="Label" parent="." unique_id=34813651]
 layout_mode = 0
@@ -58,29 +77,34 @@ offset_right = 797.0
 offset_bottom = 223.0
 theme_override_font_sizes/font_size = 106
 text = "Beat the clock"
+label_settings = SubResource("LabelSettings_3xoar")
 
 [node name="Button" type="Button" parent="." unique_id=1577233757]
 layout_mode = 0
-offset_left = 84.0
-offset_top = 382.0
-offset_right = 396.0
-offset_bottom = 505.0
-theme_override_font_sizes/font_size = 78
+offset_left = 143.0
+offset_top = 303.0
+offset_right = 467.405
+offset_bottom = 446.135
+theme_override_fonts/font = ExtResource("4_7lgly")
+theme_override_font_sizes/font_size = 123
 theme_override_styles/normal = SubResource("StyleBoxFlat_oyqm6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3xoar")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kpexm")
 text = "Play"
 
 [node name="Label2" type="Label" parent="." unique_id=1291050863]
-custom_maximum_size = Vector2(500, 100)
 layout_mode = 0
-offset_left = 87.0
-offset_top = 531.0
-offset_right = 587.0
-offset_bottom = 612.0
+offset_left = 72.0
+offset_top = 498.0
+offset_right = 572.0
+offset_bottom = 603.0
 theme_override_font_sizes/font_size = 28
-text = "Léa Dansereau, Mélissa Desrosiers, Zachary Ouellet, Gabriel Uriza"
-autowrap_mode = 3
+text = "Lea Dansereau
+Melissa Desrosiers
+Zachary Ouellet
+Gabriel Uriza"
+label_settings = SubResource("LabelSettings_mom7w")
+horizontal_alignment = 1
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=537411464]
 layout_mode = 1
@@ -103,6 +127,7 @@ scaling_3d_scale = 2.0
 render_target_update_mode = 4
 
 [node name="Hourglass_visuals" parent="SubViewportContainer/SubViewport" unique_id=785185120 instance=ExtResource("2_oyqm6")]
+transform = Transform3D(0.90258527, -0.10415007, -0.4177231, 0, 0.9702957, -0.2419219, 0.43051112, 0.21835515, 0.8757746, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1103408782]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 8.615)
@@ -113,6 +138,6 @@ size = 1.252
 near = 0.036
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=210412788]
-transform = Transform3D(0.8746197, 0.109058425, -0.47238398, 0, 0.97437006, 0.22495104, 0.4848096, -0.19674662, 0.85220325, 0, 0, 0)
+transform = Transform3D(0.7443116, 0.12971602, -0.65511376, 0, 0.9809552, 0.19423434, 0.66783255, -0.14457087, 0.7301362, 0, 0, 0)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

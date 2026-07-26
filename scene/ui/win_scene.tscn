@@ -1,9 +1,52 @@
 [gd_scene format=3 uid="uid://cvbc6qeo7sw2q"]
 
 [ext_resource type="Script" uid="uid://dnh7yvaqq3ftk" path="res://scene/ui/win_scene.gd" id="1_14shr"]
+[ext_resource type="Material" uid="uid://bunvt1vnqkbb1" path="res://materials/player/red_head.tres" id="2_1iw1h"]
+[ext_resource type="Texture2D" uid="uid://cqwcokqts84fi" path="res://materials/cardboard/paper_0012_color_1k.jpg" id="2_xgiw5"]
+[ext_resource type="FontFile" uid="uid://r4fnlknwxgm2" path="res://Fonts/Chalk Dash.ttf" id="3_1iw1h"]
+[ext_resource type="Material" uid="uid://tyytbdrmacvt" path="res://materials/player/blue_head.tres" id="3_m3acl"]
+[ext_resource type="FontFile" uid="uid://bwoddkpf4drp0" path="res://Fonts/Chalk.otf" id="4_m3acl"]
+[ext_resource type="PackedScene" uid="uid://cr3l7x8g53tq4" path="res://scene/player/player.tscn" id="5_xgiw5"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_bpmhk"]
-font_size = 105
+[sub_resource type="LabelSettings" id="LabelSettings_5uqet"]
+font = ExtResource("3_1iw1h")
+font_size = 83
+shadow_size = 13
+shadow_color = Color(0, 0, 0, 0.16862746)
+shadow_offset = Vector2(6.14, 6.115)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lewo"]
+bg_color = Color(0.17434, 0.69, 0.1656, 1)
+border_width_left = 10
+border_width_top = 10
+border_color = Color(0.553, 0.79, 0.4345, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.34509805)
+shadow_size = 9
+shadow_offset = Vector2(9, 9)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mlpr"]
+bg_color = Color(0.13257253, 0.29556823, 0.12741685, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev1up"]
+bg_color = Color(0.43410975, 0.88570464, 0.42450297, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xgiw5"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[sub_resource type="Environment" id="Environment_7wpeb"]
 
 [node name="WinScene" type="Control" unique_id=2127828943]
 layout_mode = 3
@@ -13,21 +56,91 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_14shr")
+materials_override = Dictionary[String, Material]({
+"Blue": ExtResource("3_m3acl"),
+"Red": ExtResource("2_1iw1h")
+})
 
-[node name="Label" type="Label" parent="." unique_id=1903541289]
-layout_mode = 0
-offset_right = 175.0
-offset_bottom = 23.0
-text = "%COLOR% player wins"
-label_settings = SubResource("LabelSettings_bpmhk")
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2045286075]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xgiw5")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="Button" type="Button" parent="." unique_id=1942392873]
+[node name="Result" type="Label" parent="." unique_id=730885240]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 68.4
+offset_bottom = 165.40005
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 106
+text = "XXXX player wins"
+label_settings = SubResource("LabelSettings_5uqet")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="." unique_id=154608132]
 layout_mode = 0
-offset_left = 341.0
-offset_top = 260.0
-offset_right = 850.0
-offset_bottom = 475.0
-theme_override_font_sizes/font_size = 108
+offset_left = 143.0
+offset_top = 303.0
+offset_right = 604.16003
+offset_bottom = 465.655
+theme_override_fonts/font = ExtResource("4_m3acl")
+theme_override_font_sizes/font_size = 123
+theme_override_styles/normal = SubResource("StyleBoxFlat_4lewo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8mlpr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ev1up")
 text = "Replay"
 
-[connection signal="pressed" from="Button" to="." method="_on_replay"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=583047053]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 46.0
+offset_top = 225.99998
+offset_right = 558.0
+offset_bottom = 738.0
+grow_horizontal = 2
+rotation = 0.17014278
+scale = Vector2(0.76419, 0.76419)
+pivot_offset_ratio = Vector2(0.5, 0)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1661154572]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+scaling_3d_scale = 2.0
+render_target_update_mode = 4
+
+[node name="Player" parent="SubViewportContainer/SubViewport" unique_id=308101449 instance=ExtResource("5_xgiw5")]
+unique_name_in_owner = true
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, -0.405, 0)
+
+[node name="Sprite3D" parent="SubViewportContainer/SubViewport/Player" index="2" unique_id=439869142]
+texture = SubResource("ViewportTexture_xgiw5")
+
+[node name="ExclamationPoint" parent="SubViewportContainer/SubViewport/Player" index="3" unique_id=1769636405]
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=443836263]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 2.495)
+environment = SubResource("Environment_7wpeb")
+fov = 25.4
+size = 1.252
+near = 0.036
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=115787423]
+transform = Transform3D(0.7443116, 0.12971602, -0.65511376, 0, 0.9809552, 0.19423434, 0.66783255, -0.14457087, 0.7301362, 0, 0, 0)
+
+[connection signal="pressed" from="Button2" to="." method="_on_replay"]
+
+[editable path="SubViewportContainer/SubViewport/Player"]
