@@ -1,18 +1,8 @@
 [gd_scene format=3 uid="uid://b7spotmdj0ttw"]
 
-[ext_resource type="PackedScene" uid="uid://6ilyu7p1rerw" path="res://artDepart/GMTK2026_v01/assets/persoA/CH_persoA.fbx" id="1_e2mbt"]
-[ext_resource type="Animation" uid="uid://bf1mxmkfj4ns7" path="res://artDepart/GMTK2026_v01/assets/animations/AN_hitCycle.res" id="2_kb28u"]
-[ext_resource type="Animation" uid="uid://cp7w300f6kwfb" path="res://artDepart/GMTK2026_v01/assets/animations/AN_runCycle.res" id="3_fg56f"]
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hbo4u"]
-_data = {
-&"AN_hitCycle": ExtResource("2_kb28u"),
-&"AN_runCycle": ExtResource("3_fg56f")
-}
+[ext_resource type="PackedScene" uid="uid://4fjuo316gjsh" path="res://artDepart/GMTK2026_v01/assets/persoA/EX_persoFBX_test.fbx" id="1_nd1li"]
 
 [node name="Node3D" type="Node3D" unique_id=219820476]
 
-[node name="CH_persoA" parent="." unique_id=839553234 instance=ExtResource("1_e2mbt")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1777366745]
-libraries/moveSet = SubResource("AnimationLibrary_hbo4u")
+[node name="EX_persoFBX_test" parent="." unique_id=444910395 instance=ExtResource("1_nd1li")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0.0037401393, 0, 0.010521933)
