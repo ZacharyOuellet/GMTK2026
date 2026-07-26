@@ -18,10 +18,12 @@ var power_up_locks: Array[int] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
 	TimerGlobal.delta_time_percentage.connect(_on_delta_time_percentage)
 	power_up_trackers.resize(number_of_players * PowerUpType.size())
 	power_up_locks.resize(number_of_players * PowerUpType.size())
+	reset_power_ups()
+
+func reset_power_ups() -> void:
 	for i in range(power_up_trackers.size()):
 		power_up_trackers[i] = 0
 		power_up_locks[i] = 1
