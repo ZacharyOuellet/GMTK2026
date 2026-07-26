@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dgbec7qqfaqmt"]
+
+[ext_resource type="Texture2D" uid="uid://lrdrbyspr04c" path="res://materials/player/skin_cloth/fabrics_0086_ao_1k.jpg" id="1_105a5"]
+[ext_resource type="Texture2D" uid="uid://b83gamtagtgyw" path="res://materials/player/skin_cloth/fabrics_0086_metallic_1k.jpg" id="2_ufodq"]
+[ext_resource type="Texture2D" uid="uid://bf5yyca0pjtsp" path="res://materials/player/skin_cloth/fabrics_0086_normal_opengl_1k.png" id="3_d7xs8"]
+[ext_resource type="Texture2D" uid="uid://d4kr63w14xpjc" path="res://materials/player/skin_cloth/fabrics_0086_roughness_1k.jpg" id="4_cvkwy"]
+
+[resource]
+albedo_color = Color(0.93771714, 0.79955286, 0.7018648, 1)
+metallic_texture = ExtResource("2_ufodq")
+roughness_texture = ExtResource("4_cvkwy")
+normal_enabled = true
+normal_texture = ExtResource("3_d7xs8")
+ao_enabled = true
+ao_texture = ExtResource("1_105a5")
+uv1_scale = Vector3(-0.07, -0.07, -0.07)

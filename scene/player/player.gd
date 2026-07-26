@@ -30,9 +30,10 @@ signal hit_hourglass(playerId: int)
 @export_group("Internal nodes")
 @export var charge_bar: ChargeBar
 
+@onready var model : Node3D = $Model
 
 func _ready() -> void:
-	if (player_material_override): $Model.material = player_material_override
+	if (player_material_override): model.material = player_material_override
 
 func _physics_process(_delta: float) -> void:
 	player_movement()
@@ -73,6 +74,8 @@ func player_movement() -> void:
 	if dash:
 		PowerUpManager.reset_power_up(player_id, PowerUpManager.PowerUpType.DASH)
 		_generate_dash_afterimage(velocity)
+	
+	model.look_at(position - velocity)
 	move_and_slide()
 
 func _generate_dash_afterimage(velocity: Vector3) -> void:
@@ -116,7 +119,9 @@ func player_stopped_charging() -> bool:
 	
 
 func _on_hit_request(power: float):
-	var horizontal_direction: Vector3 = (hourglass.position - position).normalized()
+	var pos_diff: Vector3 = hourglass.position - position
+	pos_diff.y=0
+	var horizontal_direction = pos_diff.normalized()
 	var hit_vector: Vector3 = horizontal_direction * lerp(min_xz_force, max_xz_force, power)
 	hit_vector.y = lerp(min_y_force, max_y_force, power)
 	hit_vector.z *= speed_ratio_z_axis

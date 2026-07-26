@@ -7,16 +7,21 @@
 [ext_resource type="PackedScene" uid="uid://jblwxwn28o14" path="res://scene/ui/main_ui.tscn" id="4_6fdoo"]
 [ext_resource type="Material" uid="uid://dgsdcqqbpqehi" path="res://materials/cardboard/cardboard2.tres" id="5_1crwq"]
 [ext_resource type="PackedScene" uid="uid://dhbm6mbw0wt4" path="res://scene/ui/power_interface.tscn" id="5_2gnev"]
+[ext_resource type="Material" uid="uid://6trwi6vrt6h5" path="res://materials/player/red_plastic.tres" id="5_avujt"]
 [ext_resource type="Material" uid="uid://dr60ugc4lpu8r" path="res://materials/cardboard/cardboard1.tres" id="5_gjcpk"]
+[ext_resource type="Material" uid="uid://c1jpxjr5g6775" path="res://materials/player/blue_plastic.tres" id="6_ufh7j"]
 [ext_resource type="Material" uid="uid://b40fxi20p1msg" path="res://materials/cardboard/cardboard1_side.tres" id="6_vh5o8"]
 
+[sub_resource type="Environment" id="Environment_vh5o8"]
+tonemap_white = 1.46
+glow_enabled = true
+glow_intensity = 6.44
+glow_bloom = 0.06
+fog_depth_begin = 198.6
+fog_depth_end = 451.6
+adjustment_enabled = true
+
 [sub_resource type="BoxMesh" id="BoxMesh_bpmhk"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjcpk"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1crwq"]
-albedo_color = Color(0, 0.116666794, 1, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_yilnh"]
 
@@ -53,13 +58,17 @@ orientation = 2
 
 [node name="MainGame" type="Node3D" unique_id=1631344264 node_paths=PackedStringArray("hourglass")]
 script = ExtResource("1_2gnev")
-y_force = 10.0
+y_force = 20.0
+torque = Vector3(0, 0, 15)
 hourglass = NodePath("Hourglass")
 
 [node name="MainUi" parent="." unique_id=281116502 instance=ExtResource("4_6fdoo")]
+visible = false
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2091930083]
 transform = Transform3D(1, 0, 0, 0, 0.9707164, 0.24022803, 0, -0.24022803, 0.9707164, 0, 30, 110)
+environment = SubResource("Environment_vh5o8")
+current = true
 fov = 9.0
 script = ExtResource("2_6fdoo")
 
@@ -69,15 +78,15 @@ visible = false
 mesh = SubResource("BoxMesh_bpmhk")
 
 [node name="Player1" parent="." unique_id=308101449 node_paths=PackedStringArray("afterimage_container", "hourglass") instance=ExtResource("1_2m57j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1416526, 0, 4.2101316)
-player_material_override = SubResource("StandardMaterial3D_gjcpk")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.949261, -1.9073486e-06, -31.526272)
+player_material_override = ExtResource("5_avujt")
 afterimage_container = NodePath("../AfterImageContainer")
 hourglass = NodePath("../Hourglass")
 
 [node name="Player2" parent="." unique_id=1753972874 node_paths=PackedStringArray("afterimage_container", "hourglass") instance=ExtResource("1_2m57j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0571804, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.188061, 0, 18.233109)
 player_id = 2
-player_material_override = SubResource("StandardMaterial3D_1crwq")
+player_material_override = ExtResource("6_ufh7j")
 afterimage_container = NodePath("../AfterImageContainer")
 hourglass = NodePath("../Hourglass")
 
@@ -174,6 +183,7 @@ light_cull_mask = 4294443008
 directional_shadow_mode = 0
 
 [node name="Hourglass" parent="." unique_id=498183243 instance=ExtResource("3_ud66n")]
+gravity_scale = 2.0
 
 [node name="PowerInterface" parent="." unique_id=2077944849 instance=ExtResource("5_2gnev")]
 offset_right = -1152.0
