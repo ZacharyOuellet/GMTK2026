@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnqk3um4guuu5"
-path.s3tc="res://.godot/imported/opacity_1.1001.png-9a3b1909a670d5e45fe3dc8bb230b2bd.s3tc.ctex"
+uid="uid://ewog0ovok0rw"
+path.s3tc="res://.godot/imported/star_09.png-071953b9e1311628a90b820557107e60.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://artDepart/GMTK2026_v01/sourceimages/texture/props/hourglass/opacity_1.1001.png"
-dest_files=["res://.godot/imported/opacity_1.1001.png-9a3b1909a670d5e45fe3dc8bb230b2bd.s3tc.ctex"]
+source_file="res://artDepart/star/star_09.png"
+dest_files=["res://.godot/imported/star_09.png-071953b9e1311628a90b820557107e60.s3tc.ctex"]
 
 [params]
 
@@ -26,8 +26,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=-5
-roughness/src_normal="res://artDepart/GMTK2026_v01/sourceimages/texture/props/hourglass/openPBR_shader1_Normal.1001.png"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

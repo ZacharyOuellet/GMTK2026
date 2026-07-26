@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://cr3l7x8g53tq4"]
 
 [ext_resource type="Script" uid="uid://cylo88e7j58gv" path="res://scene/player/player.gd" id="1_v7pse"]
+[ext_resource type="PackedScene" uid="uid://vy4hacldm1vx" path="res://art_integre/playerModel.scn" id="2_6smn3"]
 [ext_resource type="Script" uid="uid://da5gkg2vuys62" path="res://scene/player/charge_bar.gd" id="3_6smn3"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pa3om"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6smn3"]
+albedo_color = Color(1, 0, 0, 1)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_pa3om"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pa3om"]
+radius = 0.3
+height = 2.319336
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_v5s5d"]
 viewport_path = NodePath("Sprite3D/SubViewport")
@@ -25,9 +29,11 @@ roughness = 0.28
 
 [sub_resource type="SphereMesh" id="SphereMesh_bi6ng"]
 
-[node name="Player" type="CharacterBody3D" unique_id=308101449 node_paths=PackedStringArray("charge_bar")]
+[node name="Player" type="CharacterBody3D" unique_id=308101449 node_paths=PackedStringArray("dash_after_image_scene", "charge_bar")]
 axis_lock_linear_y = true
 script = ExtResource("1_v7pse")
+player_material_override = SubResource("StandardMaterial3D_6smn3")
+dash_after_image_scene = NodePath("Model")
 torque_vector = Vector3(0, 0, 4)
 min_xz_force = 3.0
 max_xz_force = 15.0
@@ -36,12 +42,11 @@ max_y_force = 15.0
 charge_bar = NodePath("Sprite3D/SubViewport/HitBar")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=602623730]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0.9405505, 0, 0, 0, 0.9405505, 0, 0, 0, 0.9405505, 0, 1.0844727, 0)
 shape = SubResource("CapsuleShape3D_pa3om")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=563245823]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_pa3om")
+[node name="Model" parent="." unique_id=1398145424 instance=ExtResource("2_6smn3")]
+transform = Transform3D(0.685, 0, 0, 0, 0.685, 0, 0, 0, 0.685, 0, 0, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=439869142]
 transform = Transform3D(0.35625315, 0, 0, 0, 0.745, 0, 0, 0, 0.745, 0, 0.3, 0.7763336)
