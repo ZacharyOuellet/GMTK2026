@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://r4fnlknwxgm2" path="res://Fonts/Chalk Dash.ttf" id="3_1iw1h"]
 [ext_resource type="Material" uid="uid://c1jpxjr5g6775" path="res://materials/player/blue_plastic.tres" id="3_sufyk"]
 [ext_resource type="FontFile" uid="uid://bwoddkpf4drp0" path="res://Fonts/Chalk.otf" id="4_m3acl"]
-[ext_resource type="PackedScene" uid="uid://cr3l7x8g53tq4" path="res://scene/player/player.tscn" id="5_xgiw5"]
+[ext_resource type="PackedScene" uid="uid://cfjx7aveqtpsh" path="res://art_integre/player_animated.scn" id="7_m3acl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5uqet"]
 font = ExtResource("3_1iw1h")
@@ -42,9 +42,6 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_m3acl"]
-viewport_path = NodePath("Sprite3D/SubViewport")
 
 [sub_resource type="Environment" id="Environment_7wpeb"]
 
@@ -121,16 +118,6 @@ handle_input_locally = false
 scaling_3d_scale = 2.0
 render_target_update_mode = 4
 
-[node name="Player" parent="SubViewportContainer/SubViewport" unique_id=308101449 instance=ExtResource("5_xgiw5")]
-unique_name_in_owner = true
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, -0.405, 0)
-
-[node name="Sprite3D" parent="SubViewportContainer/SubViewport/Player" index="2" unique_id=439869142]
-texture = SubResource("ViewportTexture_m3acl")
-
-[node name="ExclamationPoint" parent="SubViewportContainer/SubViewport/Player" index="3" unique_id=1769636405]
-visible = false
-
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=443836263]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 2.495)
 environment = SubResource("Environment_7wpeb")
@@ -141,6 +128,8 @@ near = 0.036
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=115787423]
 transform = Transform3D(0.7443116, 0.12971602, -0.65511376, 0, 0.9809552, 0.19423434, 0.66783255, -0.14457087, 0.7301362, 0, 0, 0)
 
-[connection signal="pressed" from="Button2" to="." method="_on_replay"]
+[node name="animated_model" parent="SubViewportContainer/SubViewport" unique_id=1643130962 instance=ExtResource("7_m3acl")]
+unique_name_in_owner = true
+transform = Transform3D(0.245, 0, 0, 0, 0.245, 0, 0, 0, 0.245, 0, -0.275, 0)
 
-[editable path="SubViewportContainer/SubViewport/Player"]
+[connection signal="pressed" from="Button2" to="." method="_on_replay"]

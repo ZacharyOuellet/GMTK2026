@@ -11,32 +11,44 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=442019639]
-layout_mode = 0
-offset_top = 261.0
-offset_right = 1153.0
-offset_bottom = 366.0
-theme_override_constants/separation = 1000
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 151.0
 alignment = 1
 
 [node name="HBoxContainer3" type="VBoxContainer" parent="HBoxContainer" unique_id=1669389115]
 layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+alignment = 1
 
 [node name="Button" type="Button" parent="HBoxContainer/HBoxContainer3" unique_id=1747276104]
 layout_mode = 2
-text = "Red Player
+theme_override_font_sizes/font_size = 30
+text = "  Red Player  
 Dash"
+autowrap_trim_flags = 0
 
 [node name="ChargeBar" type="ProgressBar" parent="HBoxContainer/HBoxContainer3" unique_id=531920971]
 layout_mode = 2
 script = ExtResource("1_isgl1")
 
+[node name="Spacer" type="Control" parent="HBoxContainer" unique_id=1191598849]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.6
+
 [node name="HBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=839086688]
 layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
 
 [node name="Button" type="Button" parent="HBoxContainer/HBoxContainer2" unique_id=1334960851]
 layout_mode = 2
-text = "Blue Player
+theme_override_font_sizes/font_size = 30
+text = "  Blue Player  
 Dash"
+autowrap_trim_flags = 0
 
 [node name="ChargeBar" type="ProgressBar" parent="HBoxContainer/HBoxContainer2" unique_id=1390283846]
 layout_mode = 2
