@@ -15,6 +15,8 @@ func hit(force: Vector3, torque_vector: Vector3) -> void:
 		on_hit_sprite_player.show()
 		on_hit_sprite_player.play("default")
 
+	AudioManager.play_audio_by_type(AudioManager.AudioType.HIT)
+
 	TimerGlobal.is_running = false;
 	collision_layer = 2
 	collision_mask = 0
