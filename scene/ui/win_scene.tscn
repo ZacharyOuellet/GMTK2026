@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cvbc6qeo7sw2q"]
+
+[ext_resource type="Script" uid="uid://dnh7yvaqq3ftk" path="res://scene/ui/win_scene.gd" id="1_14shr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bpmhk"]
+font_size = 105
+
+[node name="WinScene" type="Control" unique_id=2127828943]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_14shr")
+
+[node name="Label" type="Label" parent="." unique_id=1903541289]
+layout_mode = 0
+offset_right = 175.0
+offset_bottom = 23.0
+text = "%COLOR% player wins"
+label_settings = SubResource("LabelSettings_bpmhk")
+
+[node name="Button" type="Button" parent="." unique_id=1942392873]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 260.0
+offset_right = 850.0
+offset_bottom = 475.0
+theme_override_font_sizes/font_size = 108
+text = "Replay"
+
+[connection signal="pressed" from="Button" to="." method="_on_replay"]

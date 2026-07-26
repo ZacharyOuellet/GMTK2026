@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://d61irsi7l65p"]
 
+[ext_resource type="Script" uid="uid://dle5g2atxet40" path="res://scene/main_game.gd" id="1_2gnev"]
 [ext_resource type="PackedScene" uid="uid://cr3l7x8g53tq4" path="res://scene/player/player.tscn" id="1_2m57j"]
+[ext_resource type="Script" uid="uid://cvfere1ij00c" path="res://scene/camera.gd" id="2_6fdoo"]
 [ext_resource type="PackedScene" uid="uid://di73a14l3rof0" path="res://scene/hourglass/hourglass_interactive.tscn" id="3_ud66n"]
 [ext_resource type="PackedScene" uid="uid://jblwxwn28o14" path="res://scene/ui/main_ui.tscn" id="4_6fdoo"]
+[ext_resource type="PackedScene" uid="uid://dhbm6mbw0wt4" path="res://scene/ui/power_interface.tscn" id="5_2gnev"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bpmhk"]
 
@@ -51,13 +54,17 @@ orientation = 2
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kj2ki"]
 albedo_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
 
-[node name="MainGame" type="Node3D" unique_id=1631344264]
+[node name="MainGame" type="Node3D" unique_id=1631344264 node_paths=PackedStringArray("hourglass")]
+script = ExtResource("1_2gnev")
+y_force = 10.0
+hourglass = NodePath("Hourglass")
 
 [node name="MainUi" parent="." unique_id=281116502 instance=ExtResource("4_6fdoo")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2091930083]
 transform = Transform3D(1, 0, 0, 0, 0.9707164, 0.24022803, 0, -0.24022803, 0.9707164, 0, 30, 110)
 fov = 9.0
+script = ExtResource("2_6fdoo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=663757528]
 transform = Transform3D(0.9612617, 0, -0.27563736, 0, 1, 0, 0.27563736, 0, 0.9612617, 0, 1, 0)
@@ -67,6 +74,7 @@ mesh = SubResource("BoxMesh_bpmhk")
 [node name="Player1" parent="." unique_id=308101449 node_paths=PackedStringArray("hourglass") instance=ExtResource("1_2m57j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1416526, 0, 4.2101316)
 hourglass = NodePath("../Hourglass")
+player1_color = Color(0.88388604, 0.28487805, 0.1772973, 1)
 
 [node name="Player2" parent="." unique_id=1753972874 node_paths=PackedStringArray("hourglass") instance=ExtResource("1_2m57j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0571804, 0, 0)
@@ -154,3 +162,10 @@ shadow_enabled = true
 directional_shadow_max_distance = 150.0
 
 [node name="Hourglass" parent="." unique_id=498183243 instance=ExtResource("3_ud66n")]
+
+[node name="PowerInterface" parent="." unique_id=2077944849 instance=ExtResource("5_2gnev")]
+offset_right = -1152.0
+offset_bottom = -648.0
+
+[connection signal="hit_hourglass" from="Player1" to="." method="_on_hourglass_hit"]
+[connection signal="hit_hourglass" from="Player2" to="." method="_on_hourglass_hit"]

@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://c3nsulyxg0xee"]
+
+[ext_resource type="Script" uid="uid://to8irc5gubru" path="res://title.gd" id="1_kpexm"]
+[ext_resource type="Texture2D" uid="uid://c2q3lsvd5phed" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoA/EX_persoAtexture_v01_MT_T_whiteEyes_1_Roughness.1001.png" id="1_y7k74"]
+[ext_resource type="PackedScene" uid="uid://b2astgnf5ehfs" path="res://scene/hourglass_visuals/hourglass_visuals.tscn" id="2_oyqm6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyqm6"]
+bg_color = Color(0.3372549, 0.69411767, 0.32941177, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xoar"]
+bg_color = Color(0.13257253, 0.29556823, 0.12741685, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpexm"]
+bg_color = Color(0.43410975, 0.88570464, 0.42450297, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Environment" id="Environment_oyqm6"]
+
+[node name="Control" type="Control" unique_id=1164383185]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kpexm")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1563712673]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -921.0
+offset_top = -1074.0
+offset_right = 40.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_y7k74")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=34813651]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 77.0
+offset_right = 797.0
+offset_bottom = 223.0
+theme_override_font_sizes/font_size = 106
+text = "Beat the clock"
+
+[node name="Button" type="Button" parent="." unique_id=1577233757]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 382.0
+offset_right = 396.0
+offset_bottom = 505.0
+theme_override_font_sizes/font_size = 78
+theme_override_styles/normal = SubResource("StyleBoxFlat_oyqm6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3xoar")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kpexm")
+text = "Play"
+
+[node name="Label2" type="Label" parent="." unique_id=1291050863]
+custom_maximum_size = Vector2(500, 100)
+layout_mode = 0
+offset_left = 87.0
+offset_top = 531.0
+offset_right = 587.0
+offset_bottom = 612.0
+theme_override_font_sizes/font_size = 28
+text = "Léa Dansereau, Mélissa Desrosiers, Zachary Ouellet, Gabriel Uriza"
+autowrap_mode = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=537411464]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 46.0
+offset_top = 225.99998
+offset_right = 558.0
+offset_bottom = 738.0
+grow_horizontal = 2
+scale = Vector2(0.76419, 0.76419)
+pivot_offset_ratio = Vector2(0.5, 0)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1566447220]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+scaling_3d_scale = 2.0
+render_target_update_mode = 4
+
+[node name="Hourglass_visuals" parent="SubViewportContainer/SubViewport" unique_id=785185120 instance=ExtResource("2_oyqm6")]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1103408782]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 8.615)
+environment = SubResource("Environment_oyqm6")
+projection = 1
+fov = 25.4
+size = 1.252
+near = 0.036
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=210412788]
+transform = Transform3D(0.8746197, 0.109058425, -0.47238398, 0, 0.97437006, 0.22495104, 0.4848096, -0.19674662, 0.85220325, 0, 0, 0)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
