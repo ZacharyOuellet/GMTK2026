@@ -25,9 +25,11 @@ roughness = 0.28
 
 [sub_resource type="SphereMesh" id="SphereMesh_bi6ng"]
 
-[node name="Player" type="CharacterBody3D" unique_id=308101449 node_paths=PackedStringArray("charge_bar")]
+[node name="Player" type="CharacterBody3D" unique_id=308101449 node_paths=PackedStringArray("afterimage_container", "dash_afterimage_scene", "charge_bar")]
 axis_lock_linear_y = true
 script = ExtResource("1_v7pse")
+afterimage_container = NodePath("")
+dash_afterimage_scene = NodePath("MeshInstance3D")
 torque_vector = Vector3(0, 0, 4)
 min_xz_force = 3.0
 max_xz_force = 15.0

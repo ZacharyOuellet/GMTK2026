@@ -7,8 +7,11 @@ signal hit_hourglass(playerId:int)
 @export_group("Controls")
 @export var speed : int = 10
 @export var speed_ratio_z_axis : float = 2.5
-@export var dash_speed_multiplier : float = 25
 
+@export_group("dash")
+@export var dash_speed_multiplier : float = 25
+@export var afterimage_container: Node3D
+@export var dash_afterimage_scene : MeshInstance3D
 
 @export_group("Hit settings")
 @export var hourglass_distance : float = 2
@@ -29,6 +32,7 @@ signal hit_hourglass(playerId:int)
 @export_group("Debug/placeholder settings")
 @export var player1_color : Color =  Color(1.0, 0.847, 0.004, 1.0)
 @export var player2_color : Color = Color(0.302, 0.0, 0.976, 1.0)
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -67,12 +71,26 @@ func player_movement() -> void:
 		direction = Input.get_vector("left_2", "right_2", "up_2", "down_2")
 		dash = (Input.is_action_just_pressed("dash_2") or Input.is_action_just_pressed("dash_2")) and PowerUpManager.is_power_up_available(player_id, PowerUpManager.PowerUpType.DASH)
 
-	if dash:
-		PowerUpManager.reset_power_up(player_id, PowerUpManager.PowerUpType.DASH)
+
 
 	velocity.x = direction.x * speed if !dash else direction.x * speed * dash_speed_multiplier
 	velocity.z = direction.y * speed * speed_ratio_z_axis if !dash else direction.y * speed * speed_ratio_z_axis * dash_speed_multiplier
+	if dash:
+		PowerUpManager.reset_power_up(player_id, PowerUpManager.PowerUpType.DASH)
+		_generate_dash_afterimage(velocity)
 	move_and_slide()
+
+func _generate_dash_afterimage(velocity: Vector3) -> void:
+	var current_position = global_transform.origin
+	var offset = velocity.normalized()
+	for i in range(1, 5):
+		if i % 2 == 0:
+			continue
+
+		var dash_af = dash_afterimage_scene.duplicate()
+		dash_af.global_transform.origin = current_position + Vector3(offset.x * i, 1 , offset.z * i * speed_ratio_z_axis)
+		afterimage_container.add_child(dash_af)
+		get_tree().create_timer(.07 * i).timeout.connect(dash_af.queue_free.bind())
 
 
 func set_player_color() -> void:
@@ -120,4 +138,3 @@ func _on_hit_request(power: float):
 	hourglass.hit(hit_vector, torque_vector)
 	GlobalJuiceMachine.request_shake(power, 0.2)
 	hit_hourglass.emit(player_id)
-
