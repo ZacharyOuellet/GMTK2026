@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c4wi115e8507q"]
+
+[ext_resource type="Texture2D" uid="uid://dlaj0eqorpa8v" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoA/EX_persoAtexture_v01_MT_T_jointMembers_1_BaseColor.1001.png" id="1_d0cwu"]
+[ext_resource type="Texture2D" uid="uid://dcantdxbjskgf" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoA/EX_persoAtexture_v01_MT_T_jointMembers_1_Metalness.1001.png" id="2_x7bqu"]
+[ext_resource type="Texture2D" uid="uid://c4ujyuaut4xgi" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoA/EX_persoAtexture_v01_MT_T_jointMembers_1_Normal.1001.png" id="3_ejebt"]
+[ext_resource type="Texture2D" uid="uid://1dd1shlg6ftr" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoA/EX_persoAtexture_v01_MT_T_jointMembers_1_Roughness.1001.png" id="4_e0eo3"]
+
+[resource]
+albedo_texture = ExtResource("1_d0cwu")
+metallic = 1.0
+metallic_texture = ExtResource("2_x7bqu")
+roughness_texture = ExtResource("4_e0eo3")
+normal_enabled = true
+normal_texture = ExtResource("3_ejebt")

@@ -1,3 +1,4 @@
+class_name Hourglass
 extends RigidBody3D
 
 
@@ -20,4 +21,3 @@ func _on_body_entered(body: Node) -> void:
 		position.y = 0
 		rotation = Vector3.ZERO
 		TimerGlobal.is_running = true
-		TimerGlobal.reverse_time()

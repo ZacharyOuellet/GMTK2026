@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d3lnnyb8ux414"]
+
+[ext_resource type="Texture2D" uid="uid://c4fwxqao4gm3m" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoA/EX_persoAtexture_v01_MT_T_head_1_BaseColor.1001.png" id="1_8mcsk"]
+[ext_resource type="Texture2D" uid="uid://koh0qj7iuf7x" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoA/EX_persoAtexture_v01_MT_T_head_1_Normal.1001.png" id="2_jican"]
+[ext_resource type="Texture2D" uid="uid://cawdilec6n54f" path="res://artDepart/GMTK2026_v01/sourceimages/texture/characters/persoA/EX_persoAtexture_v01_MT_T_head_1_Roughness.1001.png" id="3_p4e52"]
+
+[resource]
+albedo_texture = ExtResource("1_8mcsk")
+roughness_texture = ExtResource("3_p4e52")
+normal_enabled = true
+normal_texture = ExtResource("2_jican")

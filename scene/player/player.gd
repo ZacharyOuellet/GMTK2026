@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+signal hit_hourglass(playerId:int)
+
 @export var player_id : int = 1
 
 @export_group("Controls")
@@ -117,3 +119,5 @@ func _on_hit_request(power: float):
 	hit_vector.z *= speed_ratio_z_axis
 	hourglass.hit(hit_vector, torque_vector)
 	GlobalJuiceMachine.request_shake(power, 0.2)
+	hit_hourglass.emit(player_id)
+

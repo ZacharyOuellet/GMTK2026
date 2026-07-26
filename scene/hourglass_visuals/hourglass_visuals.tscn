@@ -115,6 +115,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cv5xr")
 surface_material_override/0 = SubResource("StandardMaterial3D_cv5xr")
 
 [node name="DEBUG" type="Control" parent="." unique_id=1757949225]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 221.0
