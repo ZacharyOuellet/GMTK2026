@@ -3,6 +3,7 @@ extends CharacterBody3D
 signal hit_hourglass(playerId:int)
 
 @export var player_id : int = 1
+@export var player_material_override : Material
 
 @export_group("Controls")
 @export var speed : int = 10
@@ -26,18 +27,14 @@ signal hit_hourglass(playerId:int)
 @export_group("Internal nodes")
 @export var charge_bar : ChargeBar
 
-@export_group("Debug/placeholder settings")
-@export var player1_color : Color =  Color(1.0, 0.847, 0.004, 1.0)
-@export var player2_color : Color = Color(0.302, 0.0, 0.976, 1.0)
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	set_player_color()
+	if(player_material_override): $Model.material = player_material_override
 
 func _physics_process(_delta: float) -> void:
 	player_movement()
 	charge_hourglass()
+
 
 func charge_hourglass() -> void:
 	if position.distance_to(hourglass.position) > hourglass_distance:
@@ -75,19 +72,6 @@ func player_movement() -> void:
 	move_and_slide()
 
 
-func set_player_color() -> void:
-	if player_id == 1:
-		var material = StandardMaterial3D.new()
-		$MeshInstance3D.material_override = material
-		material.albedo_color = player1_color
-	
-	if player_id == 2:
-		var material = StandardMaterial3D.new()
-		$MeshInstance3D.material_override = material
-		material.albedo_color = player2_color
-		
-		
-
 func player_started_charging() -> bool:
 	if player_id == 1:
 		return Input.is_action_just_pressed("hit_1")
@@ -120,4 +104,3 @@ func _on_hit_request(power: float):
 	hourglass.hit(hit_vector, torque_vector)
 	GlobalJuiceMachine.request_shake(power, 0.2)
 	hit_hourglass.emit(player_id)
-
