@@ -63,25 +63,25 @@ spin_speed = 15.0
 [node name="EX_sablierModelingUvs_v01" parent="." unique_id=226471849 instance=ExtResource("3_n17ep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.573, 0)
 
-[node name="HR_T_branch_4" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_branchesGr_1" parent_id_path=PackedInt32Array(226471849, 690218168) index="0" unique_id=1818449060]
+[node name="HR_T_branch_4" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_branchesGr_1" parent_id_path=PackedInt32Array(226471849, 1708767711) index="0" unique_id=22853384]
 surface_material_override/0 = SubResource("StandardMaterial3D_cjcbs")
 
-[node name="HR_T_branch_3" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_branchesGr_1" parent_id_path=PackedInt32Array(226471849, 690218168) index="1" unique_id=2064931281]
+[node name="HR_T_branch_3" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_branchesGr_1" parent_id_path=PackedInt32Array(226471849, 1708767711) index="1" unique_id=176709255]
 surface_material_override/0 = SubResource("StandardMaterial3D_cjcbs")
 
-[node name="HR_T_branch_2" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_branchesGr_1" parent_id_path=PackedInt32Array(226471849, 690218168) index="2" unique_id=983365780]
+[node name="HR_T_branch_2" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_branchesGr_1" parent_id_path=PackedInt32Array(226471849, 1708767711) index="2" unique_id=878769536]
 surface_material_override/0 = SubResource("StandardMaterial3D_cjcbs")
 
-[node name="HR_T_branch_1" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_branchesGr_1" parent_id_path=PackedInt32Array(226471849, 690218168) index="3" unique_id=749411706]
+[node name="HR_T_branch_1" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_branchesGr_1" parent_id_path=PackedInt32Array(226471849, 1708767711) index="3" unique_id=2107374656]
 surface_material_override/0 = SubResource("StandardMaterial3D_cjcbs")
 
-[node name="HR_B_GlassHolder_2" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_glassHoldersGr_1" parent_id_path=PackedInt32Array(226471849, 1007064922) index="0" unique_id=912885560]
+[node name="HR_B_GlassHolder_2" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_glassHoldersGr_1" parent_id_path=PackedInt32Array(226471849, 841773981) index="0" unique_id=342288350]
 surface_material_override/0 = SubResource("StandardMaterial3D_n17ep")
 
-[node name="HR_T_GlassHolder_1" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_glassHoldersGr_1" parent_id_path=PackedInt32Array(226471849, 1007064922) index="1" unique_id=210451402]
+[node name="HR_T_GlassHolder_1" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_glassHoldersGr_1" parent_id_path=PackedInt32Array(226471849, 841773981) index="1" unique_id=1935346638]
 surface_material_override/0 = SubResource("StandardMaterial3D_n17ep")
 
-[node name="HR_T_glass_1" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_glassGr_1" parent_id_path=PackedInt32Array(226471849, 1403370416) index="0" unique_id=16706418]
+[node name="HR_T_glass_1" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_glassGr_1" parent_id_path=PackedInt32Array(226471849, 272273495) index="0" unique_id=375308702]
 surface_material_override/0 = ExtResource("1_cjcbs")
 
 [node name="sand" type="MeshInstance3D" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_glassGr_1/HR_T_glass_1" index="0" unique_id=261453654]
@@ -90,28 +90,28 @@ transform = Transform3D(0.99992186, 0, 0.012499673, 0, 1, 0, -0.012499673, 0, 0.
 mesh = SubResource("ArrayMesh_raowm")
 surface_material_override/0 = ExtResource("2_jpvww")
 
-[node name="HR_B_patte_1" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_B_pattesGr_1" parent_id_path=PackedInt32Array(226471849, 1504679276) index="0" unique_id=627512222]
+[node name="HR_B_patte_1" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_B_pattesGr_1" parent_id_path=PackedInt32Array(226471849, 659163130) index="0" unique_id=904013706]
 surface_material_override/0 = SubResource("StandardMaterial3D_cv5xr")
 
-[node name="HR_B_patte_2" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_B_pattesGr_1" parent_id_path=PackedInt32Array(226471849, 1504679276) index="1" unique_id=1611360468]
+[node name="HR_B_patte_2" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_B_pattesGr_1" parent_id_path=PackedInt32Array(226471849, 659163130) index="1" unique_id=1291554033]
 surface_material_override/0 = SubResource("StandardMaterial3D_cv5xr")
 
-[node name="HR_B_patte_3" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_B_pattesGr_1" parent_id_path=PackedInt32Array(226471849, 1504679276) index="2" unique_id=1723189745]
+[node name="HR_B_patte_3" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_B_pattesGr_1" parent_id_path=PackedInt32Array(226471849, 659163130) index="2" unique_id=701821522]
 surface_material_override/0 = SubResource("StandardMaterial3D_cv5xr")
 
-[node name="HR_B_patte_4" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_B_pattesGr_1" parent_id_path=PackedInt32Array(226471849, 1504679276) index="3" unique_id=1599114695]
+[node name="HR_B_patte_4" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_B_pattesGr_1" parent_id_path=PackedInt32Array(226471849, 659163130) index="3" unique_id=2133092876]
 surface_material_override/0 = SubResource("StandardMaterial3D_cv5xr")
 
-[node name="HR_T_patte_4" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_pattesGr_1" parent_id_path=PackedInt32Array(226471849, 1324494171) index="0" unique_id=319390998]
+[node name="HR_T_patte_4" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_pattesGr_1" parent_id_path=PackedInt32Array(226471849, 887994750) index="0" unique_id=271443537]
 surface_material_override/0 = SubResource("StandardMaterial3D_cv5xr")
 
-[node name="HR_T_patte_3" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_pattesGr_1" parent_id_path=PackedInt32Array(226471849, 1324494171) index="1" unique_id=992095781]
+[node name="HR_T_patte_3" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_pattesGr_1" parent_id_path=PackedInt32Array(226471849, 887994750) index="1" unique_id=2104879066]
 surface_material_override/0 = SubResource("StandardMaterial3D_cv5xr")
 
-[node name="HR_T_patte_2" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_pattesGr_1" parent_id_path=PackedInt32Array(226471849, 1324494171) index="2" unique_id=966474747]
+[node name="HR_T_patte_2" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_pattesGr_1" parent_id_path=PackedInt32Array(226471849, 887994750) index="2" unique_id=197343242]
 surface_material_override/0 = SubResource("StandardMaterial3D_cv5xr")
 
-[node name="HR_T_patte_1" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_pattesGr_1" parent_id_path=PackedInt32Array(226471849, 1324494171) index="3" unique_id=1033542175]
+[node name="HR_T_patte_1" parent="EX_sablierModelingUvs_v01/HR_T_houglassGr_1/HR_T_pattesGr_1" parent_id_path=PackedInt32Array(226471849, 887994750) index="3" unique_id=406577618]
 surface_material_override/0 = SubResource("StandardMaterial3D_cv5xr")
 
 [node name="DEBUG" type="Control" parent="." unique_id=1757949225]
